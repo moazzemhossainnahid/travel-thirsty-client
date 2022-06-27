@@ -74,7 +74,7 @@ const NavMobile = () => {
         </div>
         {Navigation.map((item, idx) => {
           return (
-              <li key={idx} className='mb-8 text-white'>
+              <li onClick={() => setIsOpen(false)} key={idx} className='mb-8 text-white'>
               <Link
                 to={item.href}
                 smooth={true}
