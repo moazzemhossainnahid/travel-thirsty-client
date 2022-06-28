@@ -4,8 +4,12 @@ export const Navigation = [
       href: '/',
     },
     {
-      name: 'Services',
-      href: '/services',
+      name: 'Tour',
+      href: '/tour',
+    },
+    {
+      name: 'Hotel',
+      href: '/hotel',
     },
     {
       name: 'About',
