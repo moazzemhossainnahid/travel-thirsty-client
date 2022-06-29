@@ -6,6 +6,11 @@ import About from './Pages/About/About';
 import Contact from './Pages/Contact/Contact';
 import Tour from './Pages/Tour/Tour';
 import Hotel from './Pages/Hotel/Hotel';
+import NotFound from './Pages/NotFound/NotFound';
+import Signin from './Pages/Signin/Signin';
+import Signup from './Pages/Signup/Signup';
+import { ToastContainer } from 'react-toastify';
+import RequireAuth from './Components/RequireAuth';
 
 function App() {
   return (
@@ -13,10 +18,14 @@ function App() {
       <Routes>
         <Route path='/' element={<Home/>} />
         <Route path='/tour' element={<Tour/>} />
-        <Route path='/hotel' element={<Hotel/>} />
-        <Route path='/about' element={<About/>} />
+        <Route path='/hotel' element={<RequireAuth><Hotel/></RequireAuth>} />
+        <Route path='/about' element={<RequireAuth><About/></RequireAuth>} />
         <Route path='/contact' element={<Contact/>} />
+        <Route path='/signin' element={<Signin/>} />
+        <Route path='/signup' element={<Signup/>} />
+        <Route path='*' element={<NotFound/>} />
       </Routes>
+      <ToastContainer/>
     </div>
   );
 }
