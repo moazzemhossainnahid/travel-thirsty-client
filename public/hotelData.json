@@ -1,32 +1,50 @@
 [
     {
         "_id": 1,
-        "img": "",
-        "name": "",
-        "description": "",
+        "img": "https://pyt-blogs.imgix.net/2018/02/best-boutique-hotel.jpg?auto=format&ixlib=php-3.3.0",
+        "name": "Hotel, Italy",
+        "description": "Far far away, behind the word mountains, far from the countries",
         "price": 50,
-        "rating": 4,
+        "rating": 5,
         "location": "Miami, FI"
     },
     
     {
         "_id": 2,
-        "img": "",
-        "name": "",
-        "description": "",
-        "price": 50,
-        "rating": 4,
-        "location": "Miami, FI"
+        "img": "https://pea-7f65.kxcdn.com/img/image_db/luxury-hotel-monastero-santa-rosa-pool-night-622.jpg",
+        "name": "Santa Rosa",
+        "description": "Far far away, behind the word mountains, far from the countries",
+        "price": 60,
+        "rating": 5,
+        "location": "Santa, IT"
     },
     
     {
         "_id": 3,
-        "img": "",
-        "name": "",
-        "description": "",
-        "price": 50,
-        "rating": 4,
+        "img": "http://www.comoinstyle.com/magazine/wp-content/uploads/2014/07/villa_hotels03.jpg",
+        "name": "Villa Hotel",
+        "description": "Far far away, behind the word mountains, far from the countries",
+        "price": 40,
+        "rating": 5,
         "location": "Miami, FI"
+    },
+    {
+        "_id": 4,
+        "img": "https://ak-d.tripcdn.com/images/0225x1200003kltbfF9CE_Z_550_412_R5_Q70_D.jpg",
+        "name": "Royel Hotel",
+        "description": "Far far away, behind the word mountains, far from the countries",
+        "price": 60,
+        "rating": 5,
+        "location": "Paria, FI"
+    },
+    {
+        "_id": 5,
+        "img": "https://www.telegraph.co.uk/content/dam/Travel/hotels/europe/italy/italian-lakes/lake-como/Grand-Hotel-Tremezzo-summary.jpg?imwidth=480",
+        "name": "Grand Hotel",
+        "description": "Far far away, behind the word mountains, far from the countries",
+        "price": 40,
+        "rating": 5,
+        "location": "Italian Lakes"
     }
     
 ]
