@@ -1,9 +1,18 @@
 import React from 'react';
+import AboutHeader from '../Header/AboutHeader';
+import Counter from './AboutCounter/Counter';
+import HeroAbout from './HeroAbout';
+import Partners from './Partners';
+import WhyUs from './WhyUs/WhyUs';
 
 const About = () => {
     return (
-        <div className='flex items-center justify-center h-screen'>
-            <h3 className="text-6xl font-semibold text-rose-700">Travel Thirsty About Page</h3>
+        <div className=''>
+            <AboutHeader/>
+            <HeroAbout/>
+            <Counter/>
+            <WhyUs/>
+            <Partners/>
         </div>
     );
 };
