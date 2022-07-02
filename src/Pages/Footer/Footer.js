@@ -3,7 +3,7 @@ import React from 'react';
 const Footer = () => {
     return (
 
-        <div class="relative flex justify-start h-screen bg-gray-700 md:justify-center md:items-end ">
+        <div class="relative flex justify-start h-full bg-gray-700 md:justify-center md:items-end ">
             <img class="absolute dark:hidden object-cover top-10 h-full w-full xl:mt-10 z-0" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/footer_5_marketing_background.png" alt="background" />
             <div class="flex pt-36 md:pt-32 lg:pt-40 xl:pt-96 px-4 md:px-6  xl:px-20 flex-col justify-start items-start md:justify-center md:items-center relative z-10">
                 <div class="flex  flex-col items-start justify-start xl:justify-center xl:space-x-8 xl:flex-row">
