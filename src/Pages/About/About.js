@@ -2,6 +2,7 @@ import React from 'react';
 import AboutHeader from '../Header/AboutHeader';
 import Counter from './AboutCounter/Counter';
 import HeroAbout from './HeroAbout';
+import OurTeam from './OurTeam/OurTeam';
 import Partners from './Partners';
 import WhyUs from './WhyUs/WhyUs';
 
@@ -13,6 +14,7 @@ const About = () => {
             <Counter/>
             <WhyUs/>
             <Partners/>
+            <OurTeam/>
         </div>
     );
 };

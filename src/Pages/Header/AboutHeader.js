@@ -20,7 +20,7 @@ const AboutHeader = () => {
         alt=""
         className="h-screen w-full object-cover absolute mix-blend-overlay"
       />
-      <div className="breadcrumbs flex flex-col justify-center items-center h-screen w-full text-white text-2xl font-bold">
+      <div class="breadcrumbs flex flex-col justify-center items-center h-screen w-full text-white text-2xl font-bold">
         <ul className="flex-row">
           <li className="">
             <Link to="/">Home</Link>
@@ -48,7 +48,11 @@ const AboutHeader = () => {
         <div className="container mx-auto h-full flex items-center justify-between">
           {/* logo */}
           <a className="flex items-center gap-1" href="/">
-            <img className="w-16" src="" alt="" />{" "}
+            <img
+              className="w-12"
+              src="https://tuk-cdn.s3.amazonaws.com/can-uploader/footer_5_marketing_svg1.svg"
+              alt=""
+            />{" "}
             <span className="text-3xl font-bold">Travel Thirsty</span>
           </a>
           {/* nav */}

@@ -1,5 +1,6 @@
 import React from "react";
 import Carousel from "react-elastic-carousel";
+import { BiSearchAlt2 } from "react-icons/bi";
 import { CgEreader } from "react-icons/cg";
 import StarsRating from "react-star-rate";
 import "../../../../src/App.css";
@@ -24,15 +25,23 @@ const HotelSlider = ({ Data }) => {
         Data.map((data, index) => (
           <div
             key={index}
-            className="min-w-xs m-3 h-[32rem] bg-white rounded-lg border border-gray-200 shadow-lg dark:bg-gray-800 dark:border-gray-700"
+            className="min-w-xs m-3 h-[32rem] bg-white group rounded-lg border border-gray-200 shadow-lg dark:bg-gray-800 dark:border-gray-700"
           >
-            <a href="/#">
-              <img
-                className="rounded-t-lg h-64 w-full"
-                src={data.img1}
-                alt=""
-              />
-            </a>
+            <div className="relative">
+              <p className="absolute h-full w-full insert-0 flex justify-center items-center">
+                <span className=" group-hover:bg-white  opacity-0 group-hover:opacity-100 p-5 rounded-full ">
+                  <BiSearchAlt2 className="" />
+                </span>
+              </p>
+              <a href="/#">
+                <img
+                  className="rounded-t-lg h-64 w-full"
+                  src={data.img1}
+                  alt=""
+                />
+              </a>
+            </div>
+
             <div className="divide-y p-2">
               <div className="p-3">
                 <div className="flex justify-between">

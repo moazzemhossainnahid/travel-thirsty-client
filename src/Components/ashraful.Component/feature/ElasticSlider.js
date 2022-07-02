@@ -1,5 +1,6 @@
 import React from "react";
 import Carousel from "react-elastic-carousel";
+import { BiSearchAlt2 } from "react-icons/bi";
 import "../../../../src/App.css";
 const ElasticSlider = ({ featureData }) => {
   const breakPoints = [
@@ -22,11 +23,18 @@ const ElasticSlider = ({ featureData }) => {
           featureData.map((data, index) => (
             <div
               key={index}
-              className="min-w-xs m-3 h-[30rem] bg-white shadow-lg dark:bg-gray-800"
+              className="min-w-xs group m-3 h-[30rem] bg-white shadow-lg dark:bg-gray-800"
             >
-              <a href="/#">
-                <img className="h-80 w-80" src={data.img} alt="" />
-              </a>
+              <div className="relative">
+                <p className="absolute h-full w-full insert-0 flex justify-center items-center">
+                  <span className=" group-hover:bg-white  opacity-0 group-hover:opacity-100 p-5 rounded-full ">
+                    <BiSearchAlt2 className="" />
+                  </span>
+                </p>
+                <a href="/#">
+                  <img className="h-80 w-80" src={data.img} alt="" />
+                </a>
+              </div>
               <div className="p-5">
                 <a href="/#">
                   <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
