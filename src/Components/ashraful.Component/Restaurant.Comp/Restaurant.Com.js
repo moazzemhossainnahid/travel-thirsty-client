@@ -1,20 +1,20 @@
 import React from "react";
-import tourData from "../../../Services/tourData.json";
-import HotelSlider from "../AllCarouselSlider/HotelSlider";
-const Hotel = () => {
+import data from "../../../Services/tourData.json";
+import RestSlider from "../AllCarouselSlider/RestSlider";
+const Restaurant = () => {
   return (
-    <div className="py-48">
-      <div className="container px-8 mx-auto mb-5">
+    <div className="container mx-auto py-48">
+      <div className="mb-5 px-8">
         <h5 className="text-lg">Special Offers</h5>
         <h2 className="text-3xl py-5">
           <span className="font-bold">Popular</span> Hotels & Rooms
         </h2>
       </div>
       <div className="px-8">
-        <HotelSlider Data={tourData} />
+        <RestSlider Data={data} />
       </div>
     </div>
   );
 };
 
-export default Hotel;
+export default Restaurant;

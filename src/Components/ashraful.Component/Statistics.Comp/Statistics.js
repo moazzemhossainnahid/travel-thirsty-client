@@ -3,7 +3,7 @@ import Count from "./Count";
 //bg-cover bg-no-repeat bg-center  bg-[url('https://i.ibb.co/TLjHJzh/bgImg.webp')]
 const Statistics = () => {
   return (
-    <div className="h-[40rem] w-full relative bg-cover bg-no-repeat bg-center bg-gradient-to-r from-[#2ebdc4] to-[#68e5b2]">
+    <div className="py-48 px-8 w-full relative bg-cover bg-no-repeat bg-center bg-gradient-to-r from-[#2ebdc4] to-[#68e5b2]">
       <div className="h-full flex justify-center items-center">
         <div>
           <div className="text-center">
@@ -11,7 +11,7 @@ const Statistics = () => {
             <p className="text-white">More than 100,000 websites hosted</p>
           </div>
           <div>
-            <ul className="grid grid-cols-4 gap-20 mt-24">
+            <ul className="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-20 mt-24">
               <li className="text-center">
                 <h4 className="text-6xl text-white mb-6 font-bold">
                   <Count end="1000000"></Count>

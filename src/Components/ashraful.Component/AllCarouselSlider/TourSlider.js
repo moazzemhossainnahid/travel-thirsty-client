@@ -2,10 +2,9 @@ import React from "react";
 import Carousel from "react-elastic-carousel";
 import { BiSearchAlt2 } from "react-icons/bi";
 import { CgEreader } from "react-icons/cg";
-import StarsRating from "react-star-rate";
-import "../../../../src/App.css";
+import ReactStars from "react-rating-stars-component";
 
-const HotelSlider = ({ Data }) => {
+const TourSlider = ({ Data }) => {
   const breakPoints = [
     { width: 1, itemsToShow: 1 },
     { width: 550, itemsToShow: 2, itemsToScroll: 1, pagination: false },
@@ -25,7 +24,7 @@ const HotelSlider = ({ Data }) => {
         Data.map((data, index) => (
           <div
             key={index}
-            className="min-w-xs m-3 h-[32rem] bg-white group rounded-lg border border-gray-200 shadow-lg dark:bg-gray-800 dark:border-gray-700"
+            className="min-w-xs m-3 group h-full bg-white rounded-lg border border-gray-200 shadow-lg dark:bg-gray-800 dark:border-gray-700"
           >
             <div className="relative">
               <p className="absolute h-full w-full insert-0 flex justify-center items-center">
@@ -35,13 +34,12 @@ const HotelSlider = ({ Data }) => {
               </p>
               <a href="/#">
                 <img
-                  className="rounded-t-lg h-64 w-full"
-                  src={data.img1}
+                  className="rounded-t-lg h-80 w-full"
+                  src={data.img}
                   alt=""
                 />
               </a>
             </div>
-
             <div className="divide-y p-2">
               <div className="p-3">
                 <div className="flex justify-between">
@@ -50,30 +48,23 @@ const HotelSlider = ({ Data }) => {
                   </h5>
                   <div className="text-2xl font-semibold">${data.price}</div>
                 </div>
-                <p className="flex items-center">
+                <p className="flex items-center py-2">
                   <span
                     className="-py-10"
-                    style={{ fontSize: "50px !important" }}
+                    style={{ fontSize: "5px !important" }}
                   >
-                    <StarsRating
-                      name="small-rating"
-                      disabled={true}
-                      size={30}
-                      className="text-6xl"
-                      // style={{ size: 30 }}
-                      value={data.rate}
-                    />
+                    <ReactStars size="20" edit={false} value={data.rate} />
                   </span>
-                  <span>{data.rate} Rating</span>
+                  <span className="ml-2">{data.rate} Rating</span>
                 </p>
                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
                   {data.description}
                 </p>
-                {/* <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
                   {data.day} days {data.night} nights
-                </p> */}
+                </p>
               </div>
-              <div className="flex justify-between px-5 pt-1">
+              <div className="flex justify-between px-5 py-1">
                 <p className="flex items-center">
                   <span className="mr-1 ">
                     <CgEreader />
@@ -81,7 +72,7 @@ const HotelSlider = ({ Data }) => {
                   {data.area}
                 </p>
                 <button className="bg-green-400 px-3 p-1 text-white rounded">
-                  Book Now
+                  Discover
                 </button>
               </div>
             </div>
@@ -91,4 +82,4 @@ const HotelSlider = ({ Data }) => {
   );
 };
 
-export default HotelSlider;
+export default TourSlider;

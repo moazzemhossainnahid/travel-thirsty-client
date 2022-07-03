@@ -1,34 +1,71 @@
-import React from "react";
-
+import React, { useState } from "react";
+import data from "../../../Services/TestimonyData.json";
+import TestimonySlider from "../AllCarouselSlider/TestimonySlider";
 const Testimony = () => {
+  const [moreText, setMoreText] = useState(false);
   return (
-    <div className="bg-[#F8FAFF]">
-      <div className="container mx-auto">
-        <div className="h-[40rem] grid gap-10 grid-cols-2 justify-center items-center">
+    <div className="bg-[#F8FAFF] py-48">
+      <div className="container px-8 mx-auto">
+        <div className="grid gap-10 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 justify-center items-center">
           <div>
             <h2 className="text-gray-400 text-lg">Best Directory Website</h2>
             <h2 className="py-2 text-4xl">
               <span className="font-bold">Why</span> Choose Us?
             </h2>
-            <p className="text-gray-400">
-              Far far away, behind the word mountains, far from the countries
-              Vokalia and Consonantia, there live the blind texts. Separated
-              they live in Bookmarksgrove right at the coast of the Semantics, a
-              large language ocean.
+            <div className="max-h-[17rem] overflow-y-auto">
+              <p className="text-gray-400">
+                Far far away, behind the word mountains, far from the countries
+                Vokalia and Consonantia, there live the blind texts. Separated
+                they live in Bookmarksgrove right at the coast of the Semantics,
+                a large language ocean.
+                <br />
+                <br />
+                Even the all-powerful Pointing has no control about the blind
+                texts it is an almost unorthographic life.
+                {moreText ? "" : <span>.....</span>}
+              </p>
               <br />
-              <br />
-              Even the all-powerful Pointing has no control about the blind
-              texts it is an almost unorthographic life.
-            </p>
-            <button className="border border-red-600 rounded-full py-3 px-5 mt-5 text-lg font-semibold text-red-600 hover:text-white hover:bg-red-600">
-              Read more
-            </button>
+              {moreText ? (
+                <p className="text-gray-400">
+                  In a Decentralized E-Commerce, people can buy and sell
+                  products in peer to peer form. Users can register and list
+                  their products and become a seller or act as a seller. The
+                  buyer will be able to see the rates and track their purchases.
+                  It is the cost-effective way of trading for both parties as
+                  the trade is happening directly between the buyer and the
+                  seller. Here the platforms like PoorToRich would ensure the
+                  genuinity and smooth transaction of the process by making sure
+                  that both the parties trade fairly.
+                </p>
+              ) : (
+                ""
+              )}
+            </div>
+            <br />
+            {moreText ? (
+              <button
+                onClick={() => setMoreText(!moreText)}
+                className="border border-red-600 rounded-full py-3 px-5 text-lg font-semibold text-red-600 hover:text-white hover:bg-red-600"
+              >
+                Read less
+              </button>
+            ) : (
+              <button
+                onClick={() => setMoreText(!moreText)}
+                className="border border-red-600 rounded-full py-3 px-5 text-lg font-semibold text-red-600 hover:text-white hover:bg-red-600"
+              >
+                Read more
+              </button>
+            )}
           </div>
           <div>
             <h2 className="text-gray-400">Testimony</h2>
-            <h2 className="text-4xl">
+            <h2 className="text-4xl mb-4 mt-2">
               <span className="font-bold">Our</span> Guests Says
             </h2>
+            <div>
+              <TestimonySlider Data={data} />
+            </div>
           </div>
         </div>
       </div>
