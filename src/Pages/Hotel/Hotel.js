@@ -1,5 +1,5 @@
 import React from 'react';
-import HotelHeader from '../Header/HotelHeader';
+import HotelHeader from '../Header/HeaderBanner/HotelHeader';
 
 const Hotel = () => {
     return (

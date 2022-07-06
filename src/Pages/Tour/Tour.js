@@ -1,5 +1,5 @@
 import React from 'react';
-import TourHeader from '../Header/TourHeader';
+import TourHeader from '../Header/HeaderBanner/TourHeader';
 
 const Tour = () => {
     return (
