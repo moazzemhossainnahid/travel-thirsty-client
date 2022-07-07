@@ -4,12 +4,12 @@ import LightSpeed from "react-reveal/LightSpeed";
 
 const HeroAbout = () => {
   return (
-    <div className="py-20 px-10 w-screen mx-auto">
+    <div className="py-10 px-10 w-screen mx-auto text-center bg-gray-100">
       <Zoom left>
-        <h3 className="font-semibold text-xl py-5">SIMPLY AMAZING PLACES</h3>
+        <h3 className="font-semibold text-xl">SIMPLY AMAZING PLACES</h3>
       </Zoom>
       <Bounce right>
-        <h3 className="font-bold text-5xl py-7">A few words about us</h3>
+        <h3 className="font-bold text-5xl py-3">A few words about us</h3>
       </Bounce>
       <div class="hero min-h-screen">
         <div class="hero-content flex flex-col lg:flex-row w-full mx-auto gap-5 text-left">

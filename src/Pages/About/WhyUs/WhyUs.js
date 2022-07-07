@@ -6,7 +6,7 @@ import WhyUsCard from "./WhyUsCard";
 
 const WhyUs = () => {
   return (
-    <div className="bg-gradient-to-tr from-purple-400 to-green-700 ">
+    <div className="bg-gradient-to-tr from-purple-400 to-green-700 text-center">
       <img
         src="https://images.squarespace-cdn.com/content/v1/59ef2d3c9f8dce981401a30d/1592002341643-UCT10ZFLQ5GCJU8L1OVY/colorful+landscapes.jpg?format=1000w"
         alt=""
