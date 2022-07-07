@@ -27,7 +27,7 @@ import ManageReviews from './Pages/Dashboard/NastedPages/ManageReviews/ManageRev
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <Routes>
         <Route path='/' element={<Home/>} />
         <Route path='/tour' element={<Tour/>} />
