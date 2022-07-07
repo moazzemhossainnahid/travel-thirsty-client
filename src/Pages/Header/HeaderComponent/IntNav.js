@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Navigation } from "../../Components/Data";
+import { Navigation } from "../../../Components/Data";
 
 const IntNav = () => {
   return (

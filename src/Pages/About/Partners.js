@@ -1,4 +1,5 @@
 import React from 'react';
+import { Fade, Zoom } from 'react-reveal';
 
 const Partners = () => {
     return (
@@ -6,11 +7,13 @@ const Partners = () => {
             <div className="px-4 py-12">
                 <div className="lg:max-w-[1440px] md:max-w-[744px] max-w-[375px] w-ful py-12 bg-gray-100 mx-auto">
                     <div className="mb-10">
-                        <p className="text-3xl font-semibold leading-9 text-center text-gray-800 lg:text-4xl">Our Valuable Partnerships</p>
+                        <Fade left><p className="text-3xl font-semibold leading-9 text-center text-gray-800 lg:text-4xl">Our Valuable Partnerships</p></Fade>
                     </div>
+                    <Zoom left>
                     <div className="lg:max-w-[1280px] w-full bg-white px-12 py-12 mx-auto">
                         <div className="block lg:block md:hidden">
                             <div className="flex flex-col items-center justify-center lg:justify-between lg:flex-row gap-x-8 gap-y-12">
+
                                 <svg width={100} height={20} viewBox="0 0 100 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <g clipPath="url(#clip0_2049_3195)">
                                         <path d="M6.03911 8.40417L9.92953 4.5203L13.822 8.40622L16.0857 6.14623L9.92953 0L3.77539 6.14417L6.03911 8.40417Z" fill="#1F2937" />
@@ -26,11 +29,11 @@ const Partners = () => {
                                         <path d="M84.8956 15.6334C84.1162 15.6334 83.3931 15.4919 82.7252 15.2093C82.0573 14.9267 81.4808 14.5401 80.9952 14.0501C80.5094 13.5603 80.1298 12.982 79.8571 12.3154C79.5838 11.6486 79.4473 10.9365 79.4473 10.1789V10.1487C79.4473 9.39114 79.5838 8.68172 79.8571 8.02001C80.13 7.35846 80.5094 6.77762 80.9952 6.27767C81.4806 5.77771 82.0626 5.38359 82.7402 5.09578C83.4179 4.80797 84.1671 4.66406 84.9865 4.66406C85.4819 4.66406 85.9346 4.70466 86.3444 4.78522C86.7542 4.86626 87.1259 4.97715 87.4601 5.11853C87.7941 5.26006 88.1023 5.43177 88.386 5.63365C88.6687 5.83584 88.932 6.05794 89.1749 6.30041L87.6879 8.01243C87.2726 7.63884 86.8504 7.34566 86.4205 7.13367C85.9903 6.92169 85.5074 6.81553 84.9712 6.81553C84.5259 6.81553 84.1136 6.90147 83.7345 7.07317C83.3551 7.24488 83.0287 7.48214 82.7554 7.78512C82.4825 8.08809 82.27 8.43925 82.1179 8.83811C81.9665 9.23728 81.8907 9.66394 81.8907 10.1184V10.1486C81.8907 10.603 81.9665 11.0325 82.1179 11.4363C82.27 11.8405 82.4795 12.1939 82.748 12.4969C83.0159 12.7998 83.3397 13.04 83.719 13.2167C84.0987 13.3936 84.516 13.4818 84.9712 13.4818C85.5785 13.4818 86.0914 13.3707 86.5113 13.1485C86.9313 12.9265 87.3488 12.6234 87.7635 12.2394L89.2508 13.7394C88.9776 14.0324 88.6939 14.2951 88.401 14.5272C88.1075 14.7597 87.7863 14.9591 87.4371 15.1259C87.0882 15.2924 86.706 15.4189 86.2916 15.5045C85.8764 15.5903 85.4112 15.6334 84.8956 15.6334Z" fill="#1F2937" />
                                         <path d="M92.002 4.84766H99.9997V6.92346H94.3089V9.07493H99.317V11.1506H94.3089V13.3779H100.076V15.4535H92.002V4.84766Z" fill="#1F2937" />
                                     </g>
-                                    <defs>
-                                        <clipPath id="clip0_2049_3195">
-                                            <rect width={100} height={20} fill="white" />
-                                        </clipPath>
-                                    </defs>
+                                        <defs>
+                                            <clipPath id="clip0_2049_3195">
+                                                <rect width={100} height={20} fill="white" />
+                                            </clipPath>
+                                        </defs>
                                 </svg>
                                 <p className="border-r border-gray-400 lg:block hidden h-[30px] " />
                                 <svg width={100} height={20} viewBox="0 0 100 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -169,6 +172,7 @@ const Partners = () => {
                             </div>
                         </div>
                     </div>
+                    </Zoom>
                 </div>
             </div>
 

@@ -1,4 +1,6 @@
 import React from "react";
+import { Fade } from "react-reveal";
+import Jump from "react-reveal/Jump";
 import { whyUsData } from "../../../Components/Data";
 import WhyUsCard from "./WhyUsCard";
 
@@ -10,18 +12,20 @@ const WhyUs = () => {
         alt=""
         className="object-cover w-full h-full absolute mix-blend-overlay"
       />
-      <div className="container mx-auto ">
+      <Fade left>
         <h3 className="text-white font-sans text-2xl pt-16">
           SIMPLY AMAZING PLACES
         </h3>
+      </Fade>
+      <Jump>
         <h3 className="text-white font-serif text-5xl lg:text-7xl py-16">
           Why Choose Us?
         </h3>
-        <div className="container grid grid-cols-1 gap-5 lg:grid-cols-3 mx-auto -mt-16 ">
-          {whyUsData.map((data, index) => (
-            <WhyUsCard data={data} key={index} />
-          ))}
-        </div>
+      </Jump>
+      <div className="container grid grid-cols-1 gap-5 lg:grid-cols-3 mx-auto -mt-16 ">
+        {whyUsData.map((data, index) => (
+          <WhyUsCard data={data} key={index} />
+        ))}
       </div>
     </div>
   );
