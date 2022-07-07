@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faClose } from '@fortawesome/free-solid-svg-icons';
 
 // import navigation data
-import { Navigation } from '../../Components/Data';
+import { Navigation } from '../../../Components/Data';
 
 // import framer
 import { motion } from 'framer-motion';

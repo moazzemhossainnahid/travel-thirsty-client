@@ -1,5 +1,5 @@
 import React from 'react';
-import HomeHeader from '../Header/HomeHeader';
+import HomeHeader from '../Header/HeaderBanner/HomeHeader';
 import ShortCard from './ShortCard/ShortCard';
 
 const Home = () => {
