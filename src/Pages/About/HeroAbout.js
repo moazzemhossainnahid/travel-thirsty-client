@@ -24,7 +24,7 @@ const HeroAbout = () => {
                 </div>
             </div>
         </div>
-    );
+  );
 };
 
 export default HeroAbout;

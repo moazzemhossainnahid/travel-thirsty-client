@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Authentication from "./HeaderComponent/Authentication";
-import NavMobile from "./HeaderComponent/NavMobile";
-import Nav from "./HeaderComponent/Nav";
+import Authentication from "./Authentication";
+import Nav from "./Nav";
+import NavMobile from "./NavMobile";
 
-
-const TourHeader = () => {
+const AboutHeader = () => {
   const [bg, setBg] = useState(false);
 
   useEffect(() => {
@@ -17,7 +16,7 @@ const TourHeader = () => {
   return (
     <div className="bg-gradient-to-tr from-purple-400 to-green-700 h-screen w-full bg-cover bg-center">
       <img
-        src="https://cdn.wallpapersafari.com/60/80/drGUFc.jpg"
+        src="https://preview.colorlib.com/theme/direngine/images/bg_4.jpg.webp"
         alt=""
         className="h-screen w-full object-cover absolute mix-blend-overlay"
       />
@@ -29,11 +28,18 @@ const TourHeader = () => {
           <li className="">
             <Link to="/tour">Tour</Link>
           </li>
+          <li className="">
+            <Link to="/hotel">Hotel</Link>
+          </li>
+          <li className="">
+            <Link to="/about">About</Link>
+          </li>
         </ul>
         <div className="flex-col py-5">
-          <h3 className="text-8xl font-bold">Tour</h3>
+          <h3 className="text-8xl font-bold">About</h3>
         </div>
       </div>
+
       <header
         className={`${
           bg ? "bg-white h-16" : "h-20 text-white"
@@ -67,4 +73,4 @@ const TourHeader = () => {
   );
 };
 
-export default TourHeader;
+export default AboutHeader;

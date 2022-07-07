@@ -50,8 +50,8 @@ function App() {
         <Route path='/signup' element={<Signup/>} />
         <Route path='*' element={<NotFound/>} />
       </Routes>
-      <Footer/>
-      <ToastContainer/>
+      <Footer />
+      <ToastContainer />
     </div>
   );
 }
