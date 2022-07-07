@@ -6,7 +6,7 @@ import Statistics from "../../Components/ashraful.Component/Statistics.Comp/Stat
 import Subscribe from "../../Components/ashraful.Component/Subscribe.Comp/Subscribe.Com";
 import Testimony from "../../Components/ashraful.Component/Testimony.Com/Testimony.Com";
 import Tour from "../../Components/ashraful.Component/Tour.Package/Tour.Com";
-import HomeHeader from "../Header/HomeHeader";
+import HomeHeader from "../Header/HeaderBanner/HomeHeader";
 import ShortCard from "./ShortCard/ShortCard";
 
 const Home = () => {

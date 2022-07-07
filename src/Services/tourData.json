@@ -70,5 +70,41 @@
     "area": "Cox-Bazar, BD",
     "img": "https://i.ibb.co/f8Q1qzs/pic7.webp",
     "img1": "https://i.ibb.co/f8Q1qzs/pic7.webp"
+  },
+  {
+    "id": 7,
+    "title": "Lion, UK",
+    "description": "Far far away, behind the word mountains, far from the countries",
+    "price": 50,
+    "rate": 3,
+    "day": 3,
+    "night": 4,
+    "area": "Cox-Bazar, BD",
+    "img": "https://i.ibb.co/f8Q1qzs/pic7.webp",
+    "img1": "https://i.ibb.co/f8Q1qzs/pic7.webp"
+  },
+  {
+    "id": 8,
+    "title": "Lion, UK",
+    "description": "Far far away, behind the word mountains, far from the countries",
+    "price": 50,
+    "rate": 3,
+    "day": 3,
+    "night": 4,
+    "area": "Cox-Bazar, BD",
+    "img": "https://i.ibb.co/f8Q1qzs/pic7.webp",
+    "img1": "https://i.ibb.co/f8Q1qzs/pic7.webp"
+  },
+  {
+    "id": 9,
+    "title": "Lion, UK",
+    "description": "Far far away, behind the word mountains, far from the countries",
+    "price": 50,
+    "rate": 3,
+    "day": 3,
+    "night": 4,
+    "area": "Cox-Bazar, BD",
+    "img": "https://i.ibb.co/f8Q1qzs/pic7.webp",
+    "img1": "https://i.ibb.co/f8Q1qzs/pic7.webp"
   }
 ]
