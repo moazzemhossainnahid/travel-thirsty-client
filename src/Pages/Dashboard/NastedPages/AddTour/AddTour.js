@@ -74,11 +74,23 @@ const AddTour = () => {
         
        <div className="md:flex items-center mt-12">
             <div className="md:w-72 flex flex-col">
-                <label className="text-base font-semibold leading-none text-gray-800">Tour Image</label>
-                <input {...register('image')} required tabIndex={0} arial-label="Please input name" type="file" className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200 placeholder-gray-100" placeholder="Please input Image" />
+                <label className="text-base font-semibold leading-none text-gray-800">Package Price</label>
+                <input {...register('country')} required tabIndex={0} arial-label="Please input email address" type="name" className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200 placeholder-gray-100" placeholder="Please input Country" />
             </div>
             <div className="md:w-72 flex flex-col md:ml-6 md:mt-0 mt-4">
-                <label className="text-base font-semibold leading-none text-gray-800">Tour Country</label>
+                <label className="text-base font-semibold leading-none text-gray-800">Package Image</label>
+                <input {...register('image')} required tabIndex={0} arial-label="Please input name" type="file" className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200 placeholder-gray-100" placeholder="Please input Image" />
+            </div>
+        </div>
+        
+       <div className="md:flex items-center mt-12">
+            <div className="md:w-72 flex flex-col">
+                <label className="text-base font-semibold leading-none text-gray-800">Tour Duration</label>
+                <input {...register('country')} required tabIndex={0} arial-label="Please input email address" type="name" className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200 placeholder-gray-100" placeholder="Please input Country" />
+            </div>
+
+            <div className="md:w-72 flex flex-col md:ml-6 md:mt-0 mt-4">
+                <label className="text-base font-semibold leading-none text-gray-800">To Destination</label>
                 <input {...register('country')} required tabIndex={0} arial-label="Please input email address" type="name" className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200 placeholder-gray-100" placeholder="Please input Country" />
             </div>
         </div>
