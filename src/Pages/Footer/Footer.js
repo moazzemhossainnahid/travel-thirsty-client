@@ -2,7 +2,7 @@ import React from "react";
 import { Fade } from "react-reveal";
 const Footer = () => {
   return (
-    <div class="relative flex justify-start h-full bg-gray-700 md:justify-center md:items-end ">
+    <div class="relative flex justify-start h-full pt-20 md:justify-center md:items-end ">
       <img
         class="absolute dark:hidden object-cover top-10 h-full w-full xl:mt-10 z-0"
         src="https://tuk-cdn.s3.amazonaws.com/can-uploader/footer_5_marketing_background.png"
