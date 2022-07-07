@@ -1,14 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-<<<<<<< HEAD
-import Authentication from "./Authentication";
-import Nav from "./Nav";
-import NavMobile from "./NavMobile";
-=======
 import Authentication from "./HeaderComponent/Authentication";
 import Nav from "./HeaderComponent/Nav";
 import NavMobile from "./HeaderComponent/NavMobile";
->>>>>>> 767d61e0da2274ea8751a8b49acb98c0b7ca84b5
 
 const HotelHeader = () => {
   const [bg, setBg] = useState(false);

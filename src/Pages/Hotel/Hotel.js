@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-import React from "react";
-=======
 import _ from "lodash";
 import React, { useEffect, useState } from "react";
->>>>>>> 767d61e0da2274ea8751a8b49acb98c0b7ca84b5
 import Sidebar from "../../Components/ashraful.Component/Tour.Package/Sidebar";
 import TourGridProduct from "../../Components/ashraful.Component/Tour.Package/TourGridProduct";
 import tourDatas from "../../Services/tourData.json";

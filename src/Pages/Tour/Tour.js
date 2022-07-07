@@ -1,17 +1,9 @@
-<<<<<<< HEAD
-=======
 import _ from "lodash";
->>>>>>> 767d61e0da2274ea8751a8b49acb98c0b7ca84b5
 import React, { useEffect, useState } from "react";
 import Sidebar from "../../Components/ashraful.Component/Tour.Package/Sidebar";
 import TourGridProduct from "../../Components/ashraful.Component/Tour.Package/TourGridProduct";
 import tourDatas from "../../Services/tourData.json";
-<<<<<<< HEAD
-// import _ from "lodash";
-import TourHeader from "../Header/TourHeader";
-=======
 import TourHeader from "../Header/HeaderBanner/TourHeader";
->>>>>>> 767d61e0da2274ea8751a8b49acb98c0b7ca84b5
 const Tour = () => {
   const [allTour_D, set_allTour_D] = useState([]);
   const [paginatedData, set_paginatedData] = useState([]);

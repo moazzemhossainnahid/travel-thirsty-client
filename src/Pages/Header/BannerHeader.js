@@ -1,19 +1,9 @@
 import React, { useEffect, useState } from "react";
-<<<<<<< HEAD
-import { Link } from "react-router-dom";
-import Authentication from "./HeaderComponent/Authentication";
-import NavMobile from "./HeaderComponent/NavMobile";
-import Nav from "./HeaderComponent/Nav";
-
-
-const TourHeader = () => {
-=======
 import Authentication from "./HeaderComponent/Authentication";
 import Nav from "./HeaderComponent/Nav";
 import NavMobile from "./HeaderComponent/NavMobile";
 
 const BannerHeader = () => {
->>>>>>> 767d61e0da2274ea8751a8b49acb98c0b7ca84b5
   const [bg, setBg] = useState(false);
 
   useEffect(() => {
@@ -55,8 +45,4 @@ const BannerHeader = () => {
   );
 };
 
-<<<<<<< HEAD
-export default TourHeader;
-=======
 export default BannerHeader;
->>>>>>> 767d61e0da2274ea8751a8b49acb98c0b7ca84b5
