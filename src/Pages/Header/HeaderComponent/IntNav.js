@@ -1,6 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { Navigation } from "../../Components/Data";
+import React from 'react';
+import { Navigation } from '../../../Components/Data';
+import {Link} from "react-router-dom";
 
 const IntNav = () => {
   return (
