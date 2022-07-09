@@ -6,7 +6,7 @@ import NavMobile from './HeaderComponent/NavMobile';
 
 const Header = () => {
 
-    return (
+    return ( 
         <header
             className={`bg-white h-16 flex items-center fixed top-0 w-full text-dark z-50 px-3 transition-all duration-300`}
         >

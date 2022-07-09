@@ -7,7 +7,7 @@ const Feature = () => {
   return (
     <div className="container px-8 mx-auto py-16">
       <Fade left>
-        <div>
+        <div className="pb-10">
           <h5 className="text-lg">Featured</h5>
           <h2 className="text-3xl">
             <span className="font-bold">Featured </span>Destination
@@ -15,7 +15,7 @@ const Feature = () => {
         </div>
       </Fade>
       <Fade bottom>
-        <div className="">
+        <div className="pt-20">
           <ElasticSlider featureData={featureData} />
         </div>
       </Fade>
