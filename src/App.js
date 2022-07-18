@@ -1,7 +1,9 @@
-import { Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
+import HotelsDetails from "./Components/ashraful.Component/HotelDetails/HotelsDetails";
+import TourDetails from "./Components/ashraful.Component/TourDetails/TourDetails";
 import RequireAuth from "./Components/RequireAuth";
 import About from "./Pages/About/About";
 import Bookings from "./Pages/Bookings/Bookings";
@@ -26,11 +28,16 @@ import Tour from "./Pages/Tour/Tour";
 
 function App() {
   return (
-    <div>
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/tour" element={<Tour />} />
-        <Route path="/hotel" element={<Hotel />} />
+        <Route path="/tour" element={<Tour />}>
+          <Route path="details/:id" element={<TourDetails />} />
+        </Route>
+        <Route path="/hotel" element={<Hotel />}>
+          <Route path="details/:id" element={<HotelsDetails />} />
+        </Route>
+        {/* <Route path="details/:id" element={} /> */}
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route
@@ -57,6 +64,7 @@ function App() {
             </RequireAuth>
           }
         />
+
         <Route
           path="/dashboard"
           element={
@@ -73,13 +81,14 @@ function App() {
           <Route path="managetours" element={<ManageTours />} />
           <Route path="managereviews" element={<ManageReviews />} />
         </Route>
+
         <Route path="/signin" element={<Signin />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
       <ToastContainer />
-    </div>
+    </BrowserRouter>
   );
 }
 

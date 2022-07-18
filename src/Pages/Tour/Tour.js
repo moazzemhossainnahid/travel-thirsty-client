@@ -1,23 +1,43 @@
+import axios from "axios";
 import _ from "lodash";
 import React, { useEffect, useState } from "react";
+import { Outlet } from "react-router-dom";
+import TourGridProduct from "../../Components/ashraful.Component/AllProducts/TourGridProduct";
 import Sidebar from "../../Components/ashraful.Component/Tour.Package/Sidebar";
-import TourGridProduct from "../../Components/ashraful.Component/Tour.Package/TourGridProduct";
-import tourDatas from "../../Services/tourData.json";
+import UseHooks from "../../Components/ashraful.Component/UseHooks/UseHooks";
+import Loading from "../../Components/Loading";
 import TourHeader from "../Header/HeaderBanner/TourHeader";
 const Tour = () => {
   const [allTour_D, set_allTour_D] = useState([]);
   const [paginatedData, set_paginatedData] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [currentPage, set_currentPage] = useState(1);
+  const { baseURL } = UseHooks();
 
   const pageSize = 6;
   /* ----------------------------------------------------------------*/
   /*                      LOAD ALL TOUR DATA START                   */
   /* ----------------------------------------------------------------*/
   useEffect(() => {
-    set_allTour_D(tourDatas);
-    set_paginatedData(_(tourDatas).slice(0).take(pageSize).value());
-  }, []);
-  // console.log(allTour_D);
+    setLoading(true);
+    const fetchData = async () => {
+      try {
+        await axios.get(`${baseURL}/tour/all-tour-plan`).then((data) => {
+          const allData = data.data.data;
+          console.log(allData);
+          if (allData) {
+            setLoading(false);
+          }
+          set_allTour_D(allData);
+          set_paginatedData(_(allData).slice(0).take(pageSize).value());
+          console.log(allData);
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, [baseURL]);
 
   /* ----------------------------------------------------------------*/
   /*                  PAGINATION FUNCTIONALITY START                 */
@@ -42,19 +62,21 @@ const Tour = () => {
       <TourHeader />
       <div className="bg-gray-100">
         <div className="container mx-auto py-10">
-          <div className="grid grid-cols-5 gap-5">
-            <div>
+          <div className="grid grid-cols-1 lg:gap-6 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-4">
+            <div className="md:mb-3">
               <Sidebar />
             </div>
-            <div className="col-span-4">
-              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
+            <div className="col-span-3">
+              <Outlet />
+              <div>{loading && <Loading />}</div>
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                 {paginatedData.length &&
                   paginatedData.map((data, index) => (
                     <TourGridProduct data={data} key={index} />
                   ))}
               </div>
               {/* Pagination */}
-              <div className="my-8 float-right">
+              <div className="my-8 mr-2 float-right">
                 <nav aria-label="Page navigation">
                   <ul class="inline-flex space-x-2">
                     <li>

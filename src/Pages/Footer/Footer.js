@@ -16,7 +16,7 @@ const Footer = () => {
               <div className="flex gap-3 items-center">
                 <div class="cursor-pointer w-12">
                   <img
-                    src="https://i.ibb.co/8XnNFJ2/plane-travel-flight-tourism-travel-icon-png-10.png"
+                    src="https://tuk-cdn.s3.amazonaws.com/can-uploader/footer_5_marketing_svg1.svg"
                     alt="logo"
                   />
                 </div>
