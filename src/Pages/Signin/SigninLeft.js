@@ -6,6 +6,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import {
+  useAuthState,
   useSignInWithEmailAndPassword,
   useSignInWithFacebook,
   useSignInWithGithub,
@@ -19,6 +20,7 @@ import UseToken from "../../Components/UseToken";
 import auth from "../../firebase.init";
 
 const SigninLeft = () => {
+  const [user] = useAuthState(auth);
   const [signInWithEmailAndPassword, suser, sloading, serror] =
     useSignInWithEmailAndPassword(auth);
   const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
@@ -32,7 +34,7 @@ const SigninLeft = () => {
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
 
-  const [token] = UseToken(suser || guser || gituser || fuser);
+  const [token] = UseToken(user?.email);
 
   let signinError;
 
