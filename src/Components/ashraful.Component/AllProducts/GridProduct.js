@@ -43,9 +43,15 @@ const GridProduct = ({ data }) => {
             <div className="flex justify-between py-2">
               <p className="flex items-center">
                 <span className="-py-10" style={{ fontSize: "5px !important" }}>
-                  <ReactStars size="20" edit={false} value={data.rating} />
+                  <ReactStars
+                    size="20"
+                    color="gray"
+                    activeColor="red"
+                    edit={false}
+                    value={data?.rating}
+                  />
                 </span>
-                <span className="ml-2">{data.rating} Rating</span>
+                <span className="ml-2">{data?.rating} Rating</span>
               </p>
               <p className=" font-semibold text-blue-400">/night</p>
             </div>

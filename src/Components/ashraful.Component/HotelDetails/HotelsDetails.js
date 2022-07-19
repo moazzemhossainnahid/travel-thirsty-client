@@ -248,7 +248,7 @@ const HotelsDetails = () => {
                  text-sm px-5 py-4 text-center dark:bg-blue-600 
                  dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               >
-                Register new account
+                Check Availablility
               </button>
             </form>
 

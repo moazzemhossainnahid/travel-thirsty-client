@@ -11,13 +11,13 @@ const HeroAbout = () => {
       <Bounce right>
         <h3 className="font-bold text-5xl py-3">A few words about us</h3>
       </Bounce>
-      <div class="hero min-h-screen">
-        <div class="hero-content flex flex-col lg:flex-row w-full mx-auto gap-5 text-left">
+      <div className="hero min-h-screen">
+        <div className="hero-content flex flex-col lg:flex-row w-full mx-auto gap-5 text-left">
           <div className="w-full lg:w-2/5 mx-auto">
-            <h1 class="text-4xl font-bold font-serif py-5">
+            <h1 className="text-4xl font-bold font-serif py-5">
               <Slide bottom>Explore All Corners of The World With Us</Slide>
             </h1>
-            <p class="py-2">
+            <p className="py-2">
               <Roll left>
                 Far far away, behind the word mountains, far from the countries
                 Vokalia and Consonantia, there live the blind texts. Separated
@@ -25,14 +25,14 @@ const HeroAbout = () => {
                 a large language ocean.
               </Roll>
             </p>
-            <p class="py-2">
+            <p className="py-2">
               <Roll right>
                 A small river named Duden flows by their place and supplies it
                 with the necessary regelialia. It is a paradisematic country, in
                 which roasted parts of sentences fly into your mouth.
               </Roll>
             </p>
-            <button class="btn btn-primary">
+            <button className="btn btn-primary">
               <Flip left>Read More</Flip>
             </button>
           </div>
@@ -41,12 +41,12 @@ const HeroAbout = () => {
               <img
                 src="https://preview.colorlib.com/theme/passport/images/xabout_1.jpg.pagespeed.ic.Gfzq5iX5YJ.webp"
                 alt=""
-                class="max-w-sm w-52 md:w-fit mx-auto object-cover rounded-lg shadow-2xl"
+                className="max-w-sm w-52 md:w-fit mx-auto object-cover rounded-lg shadow-2xl"
               />
               <img
                 src="https://preview.colorlib.com/theme/passport/images/xabout_2.jpg.pagespeed.ic.HI2ci4yjSl.webp"
                 alt=""
-                class="max-w-sm w-52 md:w-fit mx-auto object-cover rounded-lg shadow-2xl lg:mt-16 lg:-mb-16"
+                className="max-w-sm w-52 md:w-fit mx-auto object-cover rounded-lg shadow-2xl lg:mt-16 lg:-mb-16"
               />
             </div>
           </LightSpeed>

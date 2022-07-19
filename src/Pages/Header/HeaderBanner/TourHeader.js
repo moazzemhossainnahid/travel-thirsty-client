@@ -10,7 +10,7 @@ const TourHeader = () => {
         alt=""
         className="h-screen w-full object-cover absolute mix-blend-overlay"
       />
-      <div class="breadcrumbs flex flex-col justify-center items-center h-screen w-full text-white text-2xl font-bold">
+      <div className="breadcrumbs flex flex-col justify-center items-center h-screen w-full text-white text-2xl font-bold">
         <ul className="flex-row">
           <li className="">
             <Link to="/">Home</Link>

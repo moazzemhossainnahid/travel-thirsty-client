@@ -24,11 +24,11 @@ const Header = () => {
         </div>
         <label
           for="my-drawer-2"
-          class="btn btn-primary flex w-20 m-2 drawer-button lg:hidden"
+          className="btn btn-primary flex w-20 m-2 drawer-button lg:hidden"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-5 w-5"
+            className="h-5 w-5"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"

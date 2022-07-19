@@ -6,8 +6,8 @@ const WhyUsCard = ({ data }) => {
   return (
     <Wobble>
       <div className="p-5 w-full mx-auto">
-        <div class="card bg-transparent group hover:duration-300">
-          <figure class="flex-col">
+        <div className="card bg-transparent group hover:duration-300">
+          <figure className="flex-col">
             <img
               src={icon}
               alt="Icon"

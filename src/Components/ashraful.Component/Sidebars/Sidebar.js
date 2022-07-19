@@ -1,10 +1,9 @@
 import React from "react";
 import ReactStars from "react-rating-stars-component";
-import RangeSlide from "./RangeSlide";
-const Sidebar = () => {
+import RangeSlide from "../Tour.Package/RangeSlide";
+const Sidebar = ({ handleSearchFiltering, handleFilterNum, allTour_D }) => {
   return (
     <div className=" bh-white px-4 pb-6 mt-3 shadow-lg border rounded-md overflow-hidden">
-      {/* col-span-1 */}
       <div className="divide-y divide-gray-200 space-y-5">
         <div>
           <h3 className="text-xl text-gray-800 mb-3 uppercase font-bold pt-5">
@@ -14,6 +13,7 @@ const Sidebar = () => {
           <div className="flex items-center">
             <form className="w-full space-y-5">
               <input
+                onChange={handleSearchFiltering}
                 className="shadow appearance-none rounded w-full py-3 px-3
                    text-gray-700 leading-tight border border-slate-300 
                    focus:outline-none focus:border-red-400 focus:ring-1
@@ -23,16 +23,19 @@ const Sidebar = () => {
                 placeholder="Destination, City"
               />
               <select
+                onChange={handleSearchFiltering}
                 id="default"
                 className="shadow appearance-none border border-gray-300 text-gray-700 text-sm rounded focus:ring-red-400 focus:border-red-400 block w-full py-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               >
                 <option className="hover:bg-red-400" value="default">
-                  Select Location
+                  Select Name
                 </option>
-                <option value="USA">San Francisco USA</option>
-                <option value="GR">Berlin Germany</option>
-                <option value="UK">London Uk</option>
-                <option value="It">Paris Italy</option>
+                {allTour_D.length &&
+                  allTour_D.map((item, index) => (
+                    <option key={index} value={item?.name}>
+                      {item?.name}
+                    </option>
+                  ))}
               </select>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -50,8 +53,8 @@ const Sidebar = () => {
                   </svg>
                 </div>
                 <input
-                  datepicker
-                  datepicker-buttons
+                  // datepicker
+                  // datepicker-buttons
                   type="text"
                   className="shadow appearance-none py-3 border border-gray-300 text-gray-700
                      sm:text-sm rounded focus:ring-red-400 focus:border-red-400 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -74,8 +77,8 @@ const Sidebar = () => {
                   </svg>
                 </div>
                 <input
-                  datepicker
-                  datepicker-buttons
+                  // datepicker
+                  // datepicker-buttons
                   type="text"
                   className="shadow appearance-none py-3 border
                      border-gray-300 text-gray-700 
@@ -113,6 +116,7 @@ const Sidebar = () => {
             <div className="flex items-center">
               <input
                 type="checkbox"
+                onChange={() => handleFilterNum(5)}
                 name=""
                 id="cat-5"
                 className="text-primary focus:ring-0 rounded-sm cursor-pointer"
@@ -134,6 +138,7 @@ const Sidebar = () => {
             <div className="flex items-center">
               <input
                 type="checkbox"
+                onChange={() => handleFilterNum(4)}
                 name=""
                 id="cat-4"
                 className="text-primary focus:ring-0 rounded-sm cursor-pointer"
@@ -155,6 +160,7 @@ const Sidebar = () => {
             <div className="flex items-center">
               <input
                 type="checkbox"
+                onChange={() => handleFilterNum(3)}
                 name=""
                 id="cat-3"
                 className="text-primary focus:ring-0 rounded-sm cursor-pointer"
@@ -176,6 +182,7 @@ const Sidebar = () => {
             <div className="flex items-center">
               <input
                 type="checkbox"
+                onChange={() => handleFilterNum(2)}
                 name=""
                 id="cat-2"
                 className="text-primary focus:ring-0 rounded-sm cursor-pointer"
@@ -197,6 +204,7 @@ const Sidebar = () => {
             <div className="flex items-center">
               <input
                 type="checkbox"
+                onChange={() => handleFilterNum(1)}
                 name=""
                 id="cat-1"
                 className="text-primary focus:ring-0 rounded-sm cursor-pointer"

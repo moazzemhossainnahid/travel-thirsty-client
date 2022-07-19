@@ -2,19 +2,19 @@ import React from "react";
 import { Fade } from "react-reveal";
 const Footer = () => {
   return (
-    <div class="relative flex justify-start h-full pt-20 md:justify-center md:items-end ">
+    <div className="relative flex justify-start h-full pt-20 md:justify-center md:items-end ">
       <img
-        class="absolute dark:hidden object-cover top-10 h-full w-full xl:mt-10 z-0"
+        className="absolute dark:hidden object-cover top-10 h-full w-full xl:mt-10 z-0"
         src="https://tuk-cdn.s3.amazonaws.com/can-uploader/footer_5_marketing_background.png"
         alt="background"
       />
 
-      <div class="flex pt-36 md:pt-32 lg:pt-40 xl:pt-96 px-4 md:px-6  xl:px-20 flex-col justify-start items-start md:justify-center md:items-center relative z-10">
-        <div class="flex flex-col items-start justify-start xl:justify-center xl:space-x-8 xl:flex-row">
-          <div class="flex justify-start items-center space-x-4">
+      <div className="flex pt-36 md:pt-32 lg:pt-40 xl:pt-96 px-4 md:px-6  xl:px-20 flex-col justify-start items-start md:justify-center md:items-center relative z-10">
+        <div className="flex flex-col items-start justify-start xl:justify-center xl:space-x-8 xl:flex-row">
+          <div className="flex justify-start items-center space-x-4">
             <Fade left>
               <div className="flex gap-3 items-center">
-                <div class="cursor-pointer w-12">
+                <div className="cursor-pointer w-12">
                   <img
                     src="https://tuk-cdn.s3.amazonaws.com/can-uploader/footer_5_marketing_svg1.svg"
                     alt="logo"
@@ -22,7 +22,7 @@ const Footer = () => {
                 </div>
 
                 <div>
-                  <p class="w-60 text-xl xl:text-2xl font-semibold leading-normal text-white">
+                  <p className="w-60 text-xl xl:text-2xl font-semibold leading-normal text-white">
                     Travel Thirsty
                   </p>
                 </div>
@@ -30,91 +30,91 @@ const Footer = () => {
             </Fade>
           </div>
 
-          <div class="mt-12 xl:mt-0 grid grid-cols-1 sm:grid-cols-3 gap-y-12 sm:gap-y-0 w-full md:w-auto sm:gap-x-20 md:gap-x-28 xl:gap-8">
-            <div class="sm:w-40 md:w-auto xl:w-72 flex justify-start items-start flex-col space-y-6">
-              <h2 class="text-base xl:text-xl font-bold xl:font-semibold leading-4 xl:leading-5 text-white">
+          <div className="mt-12 xl:mt-0 grid grid-cols-1 sm:grid-cols-3 gap-y-12 sm:gap-y-0 w-full md:w-auto sm:gap-x-20 md:gap-x-28 xl:gap-8">
+            <div className="sm:w-40 md:w-auto xl:w-72 flex justify-start items-start flex-col space-y-6">
+              <h2 className="text-base xl:text-xl font-bold xl:font-semibold leading-4 xl:leading-5 text-white">
                 Community
               </h2>
-              <button class="text-left text-base hover:text-gray-400 leading-none text-gray-100">
+              <button className="text-left text-base hover:text-gray-400 leading-none text-gray-100">
                 About Us
               </button>
-              <button class="text-left text-base hover:text-gray-400 leading-none text-gray-100">
+              <button className="text-left text-base hover:text-gray-400 leading-none text-gray-100">
                 Guidelines and how to
               </button>
-              <button class="text-left text-base hover:text-gray-400 leading-none text-gray-100">
+              <button className="text-left text-base hover:text-gray-400 leading-none text-gray-100">
                 Quote from the best
               </button>
-              <button class="text-left text-base hover:text-gray-400 leading-none text-gray-100">
+              <button className="text-left text-base hover:text-gray-400 leading-none text-gray-100">
                 How to start a blog
               </button>
             </div>
 
-            <div class="sm:w-40 md:w-auto xl:w-72 flex justify-start items-start flex-col space-y-6">
-              <h2 class="text-base xl:text-xl font-bold xl:font-semibold leading-4 xl:leading-5 text-white">
+            <div className="sm:w-40 md:w-auto xl:w-72 flex justify-start items-start flex-col space-y-6">
+              <h2 className="text-base xl:text-xl font-bold xl:font-semibold leading-4 xl:leading-5 text-white">
                 Getting Started
               </h2>
-              <button class="text-left text-base hover:text-gray-400 leading-none text-gray-100">
+              <button className="text-left text-base hover:text-gray-400 leading-none text-gray-100">
                 About Us
               </button>
-              <button class="text-left text-base hover:text-gray-400 leading-none text-gray-100">
+              <button className="text-left text-base hover:text-gray-400 leading-none text-gray-100">
                 Guidelines and how to
               </button>
-              <button class="text-left text-base hover:text-gray-400 leading-none text-gray-100">
+              <button className="text-left text-base hover:text-gray-400 leading-none text-gray-100">
                 Quote from the best
               </button>
-              <button class="text-left text-base hover:text-gray-400 leading-none text-gray-100">
+              <button className="text-left text-base hover:text-gray-400 leading-none text-gray-100">
                 How to start a blog
               </button>
-              <button class="text-left text-base hover:text-gray-400 leading-none text-gray-100">
+              <button className="text-left text-base hover:text-gray-400 leading-none text-gray-100">
                 Quote from the best
               </button>
-              <button class="text-left text-base hover:text-gray-400 leading-none text-gray-100">
+              <button className="text-left text-base hover:text-gray-400 leading-none text-gray-100">
                 Guidelines and how to
               </button>
             </div>
 
-            <div class=" xl:w-72 flex justify-start items-start flex-col space-y-6">
-              <h2 class="text-base xl:text-xl font-bold xl:font-semibold leading-4 xl:leading-5 text-white">
+            <div className=" xl:w-72 flex justify-start items-start flex-col space-y-6">
+              <h2 className="text-base xl:text-xl font-bold xl:font-semibold leading-4 xl:leading-5 text-white">
                 Resources
               </h2>
-              <button class="text-base text-left hover:text-gray-400 leading-none text-gray-100">
+              <button className="text-base text-left hover:text-gray-400 leading-none text-gray-100">
                 Accessibility
               </button>
-              <button class="text-base text-left hover:text-gray-400 leading-none text-gray-100">
+              <button className="text-base text-left hover:text-gray-400 leading-none text-gray-100">
                 Usability
               </button>
-              <button class="text-base text-left hover:text-gray-400 leading-none text-gray-100">
+              <button className="text-base text-left hover:text-gray-400 leading-none text-gray-100">
                 Marketplace
               </button>
-              <button class="text-base text-left hover:text-gray-400 leading-none text-gray-100">
+              <button className="text-base text-left hover:text-gray-400 leading-none text-gray-100">
                 Design & Dev
               </button>
-              <button class="text-base text-left hover:text-gray-400 leading-none text-gray-100">
+              <button className="text-base text-left hover:text-gray-400 leading-none text-gray-100">
                 Marketplace
               </button>
             </div>
           </div>
         </div>
-        <div class="mt-12 flex  xl:justify-between xl:flex-row flex-col-reverse items-center xl:items-start w-full ">
-          <p class="mt-10 md:mt-12 xl:mt-0 text-sm leading-none text-white">
+        <div className="mt-12 flex  xl:justify-between xl:flex-row flex-col-reverse items-center xl:items-start w-full ">
+          <p className="mt-10 md:mt-12 xl:mt-0 text-sm leading-none text-white">
             {new Date().getFullYear()} The Travel Company. All Rights Reserved
           </p>
-          <div class="mt-10 md:mt-12 xl:mt-0 md:flex-row flex-col flex md:justify-center w-full md:w-auto justify-start items-start space-y-4 md:space-y-0 md:items-center md:space-x-4 xl:space-x-6">
-            <button class="text-base leading-none text-white hover:text-gray-300">
+          <div className="mt-10 md:mt-12 xl:mt-0 md:flex-row flex-col flex md:justify-center w-full md:w-auto justify-start items-start space-y-4 md:space-y-0 md:items-center md:space-x-4 xl:space-x-6">
+            <button className="text-base leading-none text-white hover:text-gray-300">
               Terms of service
             </button>
-            <button class="text-base leading-none text-white hover:text-gray-300">
+            <button className="text-base leading-none text-white hover:text-gray-300">
               Privacy Policy
             </button>
-            <button class="text-base leading-none text-white hover:text-gray-300">
+            <button className="text-base leading-none text-white hover:text-gray-300">
               Security
             </button>
-            <button class="text-base leading-none text-white hover:text-gray-300">
+            <button className="text-base leading-none text-white hover:text-gray-300">
               Sitemap
             </button>
           </div>
-          <div class="flex  justify-start md:justify-end items-start pb-20 w-full md:w-auto md:items-center space-x-6 ">
-            <button class="text-white hover:text-gray-200 w-6">
+          <div className="flex  justify-start md:justify-end items-start pb-20 w-full md:w-auto md:items-center space-x-6 ">
+            <button className="text-white hover:text-gray-200 w-6">
               <svg
                 width="24"
                 height="24"
@@ -128,7 +128,7 @@ const Footer = () => {
                 />
               </svg>
             </button>
-            <button class="text-white hover:text-gray-200 w-6">
+            <button className="text-white hover:text-gray-200 w-6">
               <svg
                 width="24"
                 height="24"
@@ -144,7 +144,7 @@ const Footer = () => {
                 />
               </svg>
             </button>
-            <button class="text-white hover:text-gray-200 w-6">
+            <button className="text-white hover:text-gray-200 w-6">
               <svg
                 width="24"
                 height="24"
@@ -158,7 +158,7 @@ const Footer = () => {
                 />
               </svg>
             </button>
-            <button class="text-white hover:text-gray-200 w-6">
+            <button className="text-white hover:text-gray-200 w-6">
               <svg
                 width="24"
                 height="24"
