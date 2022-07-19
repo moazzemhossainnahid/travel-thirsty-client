@@ -4,7 +4,8 @@ import {
   faGoogle,
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useEffect } from "react";
+import React from "react";
+import { useEffect } from "react";
 import {
   useAuthState,
   useCreateUserWithEmailAndPassword,
@@ -21,7 +22,7 @@ import UseToken from "../../Components/UseToken";
 import auth from "../../firebase.init";
 
 const SignupRight = () => {
-  const [user, loading] = useAuthState(auth);
+  const [user] = useAuthState(auth);
   const [createUserWithEmailAndPassword, cuser, cloading, cerror] =
     useCreateUserWithEmailAndPassword(auth);
   const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
@@ -30,13 +31,51 @@ const SignupRight = () => {
   const [SignInWithFacebook, fuser, floading, ferror] =
     useSignInWithFacebook(auth);
   const [updateProfile] = useUpdateProfile(auth);
-  const [token] = UseToken(user?.email);
+
   const { register, handleSubmit, reset } = useForm();
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
 
   let signupError;
+
+  const [token] = UseToken(user?.email);
+  console.log(token);
+
+  useEffect(() => {
+    if (user) {
+      fetch("http://localhost:5500/api/v1/user/add-user", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({
+          name: user?.displayName,
+          email: user?.email,
+        }),
+      });
+    }
+  }, [user]);
+
+  if (cloading || gloading || gitloading || floading) {
+    return <Loading />;
+  }
+
+  if (cerror || gerror || giterror || ferror) {
+    signupError = (
+      <p className="text-red-700">
+        {cerror?.message ||
+          gerror?.message ||
+          giterror?.message ||
+          ferror?.message}
+      </p>
+    );
+  }
+
+  if (token) {
+    navigate(from, { replace: true });
+    toast.success("Signin User Successfully");
+  }
 
   const handleSignupform = async (data) => {
     const displayName = data.displayName;
@@ -59,40 +98,6 @@ const SignupRight = () => {
   const handleFacebookSignin = async () => {
     await SignInWithFacebook();
   };
-
-  useEffect(() => {
-    if (user) {
-      fetch("http://localhost:5500/user/add-user", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify({ name: user?.displayName, email: user?.email }),
-      })
-        .then((res) => res.json())
-        .then((data) => console.log(data));
-    }
-  }, [user]);
-
-  if (token) {
-    navigate(from, { replace: true });
-    toast.success("Signin User Successfully");
-  }
-
-  if (cloading || gloading || gitloading || floading || loading) {
-    return <Loading />;
-  }
-
-  if (cerror || gerror || giterror || ferror) {
-    signupError = (
-      <p className="text-red-700">
-        {cerror?.message ||
-          gerror?.message ||
-          giterror?.message ||
-          ferror?.message}
-      </p>
-    );
-  }
 
   return (
     <div className="w-full text-center mx-auto rounded">

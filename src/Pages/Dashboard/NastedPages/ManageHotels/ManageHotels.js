@@ -5,7 +5,7 @@ import React from 'react';
 import { toast } from 'react-toastify';
 import swal from 'sweetalert';
 
-const ManageHotel = () => {
+const ManageHotels = () => {
 
 // const [data, isLoading, refetch] = useHotel();
 
@@ -84,4 +84,4 @@ const ManageHotel = () => {
     );
 };
 
-export default ManageHotel;
+export default ManageHotels;

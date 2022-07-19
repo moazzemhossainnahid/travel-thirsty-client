@@ -4,13 +4,15 @@ const UseToken = (email) => {
   const [token, setToken] = useState("");
   useEffect(() => {
     if (email) {
-      fetch(`http://localhost:5000/user/get-token`, {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify({ email }),
-      })
+      fetch(
+        `http://localhost:5500/api/v1/authentication/get-token?email=${email}`,
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           const accessToken = data.accessToken;
