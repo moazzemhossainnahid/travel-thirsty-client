@@ -1,8 +1,15 @@
-import React from 'react';
-import { Navigation } from '../../Components/Data';
+import React, { useEffect, useState } from 'react';
+import { Navigation } from '../../../Components/Data';
 import {Link} from "react-router-dom";
 
-const IntNav = () => {
+const Nav = () => {
+  const [bg, setBg] = useState(false);
+
+  useEffect(() => {
+      window.addEventListener('scroll', () => {
+          return window.scrollY > 50 ? setBg(true) : setBg(false);
+      });
+  });
 
     return (
         <nav>
@@ -10,7 +17,7 @@ const IntNav = () => {
             {Navigation.map((item, idx) => {
               return (
                 <li
-                  className={`text-black text-xl font-semibold hover:text-secondary cursor-pointer`}
+                  className={`${bg ? 'text-black' : 'text-white'} text-xl font-semibold hover:text-secondary cursor-pointer`}
                   key={idx}
                 >
                   <Link
@@ -32,4 +39,4 @@ const IntNav = () => {
       );
 };
 
-export default IntNav;
+export default Nav;

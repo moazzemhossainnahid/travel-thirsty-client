@@ -1,32 +1,28 @@
-import React from 'react';
-<<<<<<< HEAD
-import Footer from '../Footer/Footer';
-import Card from './Card';
+import React from "react";
+import Feature from "../../Components/ashraful.Component/feature/Feature.Com";
+import Hotel from "../../Components/ashraful.Component/Hotel.Comp/Hotel.com";
+import Restaurant from "../../Components/ashraful.Component/Restaurant.Comp/Restaurant.Com";
+import Statistics from "../../Components/ashraful.Component/Statistics.Comp/Statistics";
+import Subscribe from "../../Components/ashraful.Component/Subscribe.Comp/Subscribe.Com";
+import Testimony from "../../Components/ashraful.Component/Testimony.Com/Testimony.Com";
+import Tour from "../../Components/ashraful.Component/Tour.Package/Tour.Com";
+import HomeHeader from "../Header/HeaderBanner/HomeHeader";
+import ShortCard from "./ShortCard/ShortCard";
 
 const Home = () => {
-    return (
-        <>
-            <div className='flex items-center justify-center h-screen'>
-                <h3 className="text-6xl font-semibold text-rose-700">Welcome to Travel Thirsty</h3>
-            </div>
-            <div>
-                <Card></Card>
-                <Footer />
-            </div>
-        </>
-=======
-import HomeHeader from '../Header/HomeHeader';
-import ShortCard from './ShortCard/ShortCard';
-
-const Home = () => {
-    return (
-        <div className=''>
-            <HomeHeader/>
-            <ShortCard/>
-            
-        </div>
->>>>>>> nahid
-    );
+  return (
+    <div>
+      <HomeHeader />
+      <ShortCard />
+      <Feature />
+      <Tour />
+      <Statistics />
+      <Hotel />
+      <Testimony />
+      <Restaurant />
+      <Subscribe />
+    </div>
+  );
 };
 
 export default Home;
