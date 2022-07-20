@@ -35,11 +35,11 @@ const AddHotel = () => {
           };
 
           // Post to database
-          fetch(`http://localhost:5500/admin/add-hotel`, {
+          fetch(`http://localhost:5500/api/v1/admin/add-hotel`, {
             method: "POST",
             headers: {
               "content-type": "application/json",
-              // authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+              authorization: `Bearer ${localStorage.getItem("accessToken")}`,
             },
             body: JSON.stringify(hotelData),
           })

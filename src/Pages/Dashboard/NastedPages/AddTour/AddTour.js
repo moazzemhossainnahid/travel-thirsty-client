@@ -32,11 +32,11 @@ const AddTour = () => {
           };
           console.log(tourData);
           // Post to database
-          fetch(`http://localhost:5500/admin/post-tour-plan`, {
+          fetch(`http://localhost:5500/api/v1/admin/post-tour-plan`, {
             method: "POST",
             headers: {
               "content-type": "application/json",
-              //   authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+              authorization: `Bearer ${localStorage.getItem("accessToken")}`,
             },
             body: JSON.stringify(tourData),
           })
