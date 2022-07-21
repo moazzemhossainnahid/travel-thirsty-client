@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Authentication from "./Authentication";
-import Nav from "./Nav";
-import NavMobile from "./NavMobile";
+import Authentication from "../../../Pages/Header/HeaderComponent/Authentication";
+import Nav from "../../../Pages/Header/HeaderComponent/Nav";
+import NavMobile from "../../../Pages/Header/HeaderComponent/NavMobile";
 
-const ContactHeader = () => {
+const HotelHDetails = () => {
   const [bg, setBg] = useState(false);
 
   useEffect(() => {
@@ -16,7 +16,7 @@ const ContactHeader = () => {
   return (
     <div className="bg-gradient-to-tr from-purple-400 to-green-700 h-screen w-full bg-cover bg-center">
       <img
-        src="https://www.wallpapertip.com/wmimgs/9-90686_desktop-backgrounds-hd-travel.jpg"
+        src="https://wallpaperaccess.com/full/1388994.jpg"
         alt=""
         className="h-screen w-full object-cover absolute mix-blend-overlay"
       />
@@ -31,15 +31,9 @@ const ContactHeader = () => {
           <li className="">
             <Link to="/hotel">Hotel</Link>
           </li>
-          <li className="">
-            <Link to="/about">About</Link>
-          </li>
-          <li className="">
-            <Link to="/contact">Contact</Link>
-          </li>
         </ul>
         <div className="flex-col py-5">
-          <h3 className="text-8xl font-bold">Contact</h3>
+          <h3 className="text-8xl font-bold">Hotel Details</h3>
         </div>
       </div>
       <header
@@ -75,4 +69,4 @@ const ContactHeader = () => {
   );
 };
 
-export default ContactHeader;
+export default HotelHDetails;
