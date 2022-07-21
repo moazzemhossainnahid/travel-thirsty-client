@@ -23,7 +23,7 @@ const BannerHeader = () => {
         <a className="flex items-center gap-1" href="/">
           <img
             className="w-12"
-            src="https://i.ibb.co/8XnNFJ2/plane-travel-flight-tourism-travel-icon-png-10.png"
+            src="https://tuk-cdn.s3.amazonaws.com/can-uploader/footer_5_marketing_svg1.svg"
             alt=""
           />{" "}
           <span className="text-3xl font-bold">Travel Thirsty</span>
