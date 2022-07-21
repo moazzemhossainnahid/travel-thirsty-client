@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
+import UseHooks from "../Components/ashraful.Component/UseHooks/UseHooks";
 
 const useAdmin = (email) => {
   const [isAdmin, setIsAdmin] = useState(false);
-  const url = `http://localhost:5500/api/v1/authentication/get-admin`;
+  const { baseURL } = UseHooks();
+  const url = `${baseURL}/api/v1/authentication/get-admin`;
   useEffect(() => {
     if (email) {
       fetch(url, {

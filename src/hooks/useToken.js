@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
+import UseHooks from "../Components/ashraful.Component/UseHooks/UseHooks";
 
 const useToken = (email) => {
-  console.log(email);
+  const { baseURL } = UseHooks();
   const [token, setToken] = useState("");
-  const url = `http://localhost:5500/api/v1/authentication/get-token?email=${email}`;
+  const url = `${baseURL}/api/v1/authentication/get-token?email=${email}`;
   useEffect(() => {
     if (email) {
       fetch(url, {
