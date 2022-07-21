@@ -1,11 +1,13 @@
 import React from "react";
 import { useQuery } from "react-query";
+import UseHooks from "../../../../Components/ashraful.Component/UseHooks/UseHooks";
 import Loading from "../../../../Components/Loading";
 import UserDetails from "./UserDetails";
 
 const AllUsers = () => {
+  const { baseURL } = UseHooks();
   const { data, isLoading, refetch } = useQuery("users", () =>
-    fetch("http://localhost:5500/api/v1/admin/get-all-user", {
+    fetch(`${baseURL}/api/v1/admin/get-all-user`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -16,8 +18,6 @@ const AllUsers = () => {
   if (isLoading) {
     return <Loading />;
   }
-
-  console.log(data);
 
   return (
     <div className=" text-left h-full w-full">

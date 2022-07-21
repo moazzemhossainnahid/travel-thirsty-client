@@ -14,7 +14,7 @@ const IntNav = () => {
             >
               <Link
                 to={item.href}
-                activeclass="active"
+                activeClass="active"
                 spy={true}
                 smooth={true}
                 duration={500}

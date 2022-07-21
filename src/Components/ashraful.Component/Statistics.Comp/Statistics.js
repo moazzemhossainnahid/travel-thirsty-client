@@ -3,8 +3,9 @@ import Fade from "react-reveal/Fade";
 import Count from "./Count";
 const Statistics = () => {
   return (
-    <div className="py-24 px-8 w-full relative bg-cover bg-no-repeat bg-center bg-gradient-to-r from-[#2ebdc4] to-[#68e5b2]">
-      <div className="h-full flex justify-center items-center">
+    <div className="bg-gradient-to-tr from-purple-400 to-green-700 h-full w-full relative bg-cover bg-no-repeat bg-center ">
+    <img src="https://images.hdqwalls.com/download/travel-hd-1366x768.jpg" alt="" className="h-screen w-full object-cover absolute mix-blend-overlay" />
+      <div className="h-full flex py-20 px-10 justify-center items-center">
         <div>
           <Fade left>
             <div className="text-center">

@@ -18,7 +18,8 @@ import { useForm } from "react-hook-form";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Loading from "../../Components/Loading";
-import UseToken from "../../Components/UseToken";
+
+import useToken from "../../hooks/useToken";
 import auth from "../../firebase.init";
 
 const SignupRight = () => {
@@ -39,8 +40,8 @@ const SignupRight = () => {
 
   let signupError;
 
-  const [token] = UseToken(user?.email);
-  console.log(token);
+  const token = useToken(user?.email);
+  console.log(user?.email, token);
 
   useEffect(() => {
     if (user) {

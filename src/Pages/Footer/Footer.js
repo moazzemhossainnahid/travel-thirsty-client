@@ -2,28 +2,27 @@ import React from "react";
 import { Fade, Slide, Zoom } from "react-reveal";
 const Footer = () => {
   return (
-    <div class="relative flex justify-start h-full pt-20 md:justify-center md:items-end ">
+    <div className="relative flex justify-start h-full pt-20 md:justify-center md:items-end ">
       <img
-        class="absolute dark:hidden object-cover top-10 h-full w-full xl:mt-10 z-0"
+        className="absolute dark:hidden object-cover top-10 h-full w-full xl:mt-10 z-0"
         src="https://tuk-cdn.s3.amazonaws.com/can-uploader/footer_5_marketing_background.png"
         alt="background"
       />
 
-      <div class="flex pt-36 md:pt-32 lg:pt-40 xl:pt-96 px-4 md:px-6  xl:px-20 flex-col justify-start items-start md:justify-center md:items-center relative z-10">
-
-        <div class="flex flex-col items-start justify-start xl:justify-center xl:space-x-8 xl:flex-row">
-          <div class="flex justify-start items-center space-x-4">
+      <div className="flex pt-36 md:pt-32 lg:pt-40 xl:pt-96 px-4 md:px-6  xl:px-20 flex-col justify-start items-start md:justify-center md:items-center relative z-10">
+        <div className="flex flex-col items-start justify-start xl:justify-center xl:space-x-8 xl:flex-row">
+          <div className="flex justify-start items-center space-x-4">
             <Fade left>
               <div className="flex gap-3 items-center">
-                <div class="cursor-pointer w-12">
+                <div className="cursor-pointer w-12">
                   <img
-                    src="https://i.ibb.co/8XnNFJ2/plane-travel-flight-tourism-travel-icon-png-10.png"
+                    src="https://tuk-cdn.s3.amazonaws.com/can-uploader/footer_5_marketing_svg1.svg"
                     alt="logo"
                   />
                 </div>
 
                 <div>
-                  <p class="w-60 text-xl xl:text-2xl font-semibold leading-normal text-white">
+                  <p className="w-60 text-xl xl:text-2xl font-semibold leading-normal text-white">
                     Travel Thirsty
                   </p>
                 </div>
@@ -130,7 +129,7 @@ const Footer = () => {
                 />
               </svg>
             </button>
-            <button class="text-white hover:text-gray-200 w-6">
+            <button className="text-white hover:text-gray-200 w-6">
               <svg
                 width="24"
                 height="24"
@@ -146,7 +145,7 @@ const Footer = () => {
                 />
               </svg>
             </button>
-            <button class="text-white hover:text-gray-200 w-6">
+            <button className="text-white hover:text-gray-200 w-6">
               <svg
                 width="24"
                 height="24"
@@ -160,7 +159,7 @@ const Footer = () => {
                 />
               </svg>
             </button>
-            <button class="text-white hover:text-gray-200 w-6">
+            <button className="text-white hover:text-gray-200 w-6">
               <svg
                 width="24"
                 height="24"

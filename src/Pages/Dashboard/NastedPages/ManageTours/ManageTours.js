@@ -4,10 +4,12 @@ import React from "react";
 
 import { toast } from "react-toastify";
 import swal from "sweetalert";
+import UseHooks from "../../../../Components/ashraful.Component/UseHooks/UseHooks";
 import useTours from "../../../../hooks/useTours";
 
 const ManageTours = () => {
   const [tours] = useTours();
+  const { baseURL } = UseHooks();
 
   const EditTour = (id) => {};
 
@@ -20,7 +22,7 @@ const ManageTours = () => {
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        fetch(`http://localhost:5500/api/v1/admin/delete-tour-plan?id=${id}`, {
+        fetch(`${baseURL}/api/v1/admin/delete-tour-plan?id=${id}`, {
           method: "DELETE",
           headers: {
             authorization: `Bearer ${localStorage.getItem("accessToken")}`,

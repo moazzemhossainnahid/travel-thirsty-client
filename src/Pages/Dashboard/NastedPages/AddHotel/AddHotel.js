@@ -1,18 +1,26 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
+import UseHooks from "../../../../Components/ashraful.Component/UseHooks/UseHooks";
 
 const AddHotel = () => {
   const { register, handleSubmit, reset } = useForm();
   const imageUrlKey = "e738f1d16de6b265746b7f82cc157644";
+  const { baseURL } = UseHooks();
 
   const handleAddTour = (data) => {
-    console.log(data);
-    const name = data.name;
-    const country = data.country;
-    const description = data.description;
-    const address = data.address;
+    const {
+      name,
+      price,
+      address,
+      city,
+      country,
+      descriptionOne,
+      descriptionTwo,
+      facilities,
+    } = data;
 
+    console.log(data);
     const image = data.image[0];
     const formData = new FormData();
     formData.append("image", image);
@@ -27,15 +35,51 @@ const AddHotel = () => {
           const img = result.data.url;
 
           const hotelData = {
-            name,
-            image: img,
-            country,
-            description,
+            name: name,
+            price: parseFloat(price),
+            images: [img, img, img],
             address,
+            city,
+            country,
+            rating: 5,
+            description: {
+              textOne: descriptionOne,
+              textTwo: descriptionTwo,
+              facilities: facilities.split(","),
+            },
+            rooms: [
+              {
+                city: "Shibpur",
+                description:
+                  "Far far away, behind the word mountains, far from the countries",
+                image: "https://i.ibb.co/pvkL0rw/room-5-jpg.webp",
+                name: "Hotel, Italy",
+                price: 200,
+                rating: 4,
+              },
+              {
+                city: "Bibaria",
+                description:
+                  "Far far away, behind the word mountains, far from the countries",
+                image: "https://i.ibb.co/TmXDqT4/room-4-jpg.webp",
+                name: "Hotel, AUS",
+                price: 250,
+                rating: 3,
+              },
+              {
+                city: "Narsingdi",
+                description:
+                  "Far far away, behind the word mountains, far from the countries",
+                image: "https://i.ibb.co/N6vn2wc/room-6-jpg.webp",
+                name: "Hotel, BD",
+                price: 150,
+                rating: 5,
+              },
+            ],
           };
-
+          console.log(hotelData);
           // Post to database
-          fetch(`http://localhost:5500/api/v1/admin/add-hotel`, {
+          fetch(`${baseURL}/api/v1/admin/add-hotel`, {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -61,9 +105,13 @@ const AddHotel = () => {
           <p className="md:text-3xl text-xl font-bold leading-7 text-center text-gray-700">
             Add a Hotel
           </p>
-          <form onSubmit={handleSubmit(handleAddTour)} action="">
+          <form
+            onSubmit={handleSubmit(handleAddTour)}
+            className="mb-32"
+            action=""
+          >
             <div className="md:flex items-center mt-12">
-              <div className="w-full flex flex-col">
+              <div className="md:w-72 flex flex-col">
                 <label className="text-base font-semibold leading-none text-gray-800">
                   Hotel Name
                 </label>
@@ -77,17 +125,15 @@ const AddHotel = () => {
                   placeholder="Please input Name"
                 />
               </div>
-            </div>
-            <div className="md:flex items-center mt-6">
-              <div className="w-full flex flex-col">
+              <div className="md:w-72 flex flex-col md:ml-6 md:mt-0 mt-4">
                 <label className="text-base font-semibold leading-none text-gray-800">
-                  Address
+                  Country
                 </label>
                 <input
-                  {...register("address")}
+                  {...register("country")}
                   required
                   tabIndex={0}
-                  arial-label="Please input address"
+                  arial-label="Please input name"
                   type="name"
                   className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200 placeholder-gray-100"
                   placeholder="Please input Name"
@@ -95,8 +141,22 @@ const AddHotel = () => {
               </div>
             </div>
 
-            <div className="md:flex items-center mt-6">
+            <div className="md:flex items-center mt-12">
               <div className="md:w-72 flex flex-col">
+                <label className="text-base font-semibold leading-none text-gray-800">
+                  Price
+                </label>
+                <input
+                  {...register("price")}
+                  required
+                  tabIndex={0}
+                  arial-label="Please input email address"
+                  type="name"
+                  className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200 placeholder-gray-100"
+                  placeholder="Please input Country"
+                />
+              </div>
+              <div className="md:w-72 flex flex-col md:ml-6 md:mt-0 mt-4">
                 <label className="text-base font-semibold leading-none text-gray-800">
                   Hotel Image
                 </label>
@@ -110,12 +170,30 @@ const AddHotel = () => {
                   placeholder="Please input Image"
                 />
               </div>
-              <div className="md:w-72 flex flex-col md:ml-6 md:mt-0 mt-4">
+            </div>
+
+            <div className="md:flex items-center mt-12">
+              <div className="md:w-72 flex flex-col">
                 <label className="text-base font-semibold leading-none text-gray-800">
-                  Country
+                  Address
                 </label>
                 <input
-                  {...register("country")}
+                  {...register("address")}
+                  required
+                  tabIndex={0}
+                  arial-label="Please input email address"
+                  type="name"
+                  className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200 placeholder-gray-100"
+                  placeholder="Please input Country"
+                />
+              </div>
+
+              <div className="md:w-72 flex flex-col md:ml-6 md:mt-0 mt-4">
+                <label className="text-base font-semibold leading-none text-gray-800">
+                  City
+                </label>
+                <input
+                  {...register("city")}
                   required
                   tabIndex={0}
                   arial-label="Please input email address"
@@ -127,28 +205,38 @@ const AddHotel = () => {
             </div>
 
             <div>
-              <div className="w-full flex flex-col mt-6">
+              <div className="w-full flex flex-col mt-8">
                 <label className="text-base font-semibold leading-none text-gray-800">
-                  Hotel Description
+                  Tour Description
                 </label>
                 <textarea
-                  {...register("description")}
+                  {...register("descriptionOne")}
                   required
                   tabIndex={0}
                   aria-label="leave a message"
                   type="text"
-                  className="h-28 text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200 placeholder-gray-100 resize-none"
-                  placeholder="Please input Review"
+                  className="h-36 text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200  resize-none"
+                  placeholder="Description One"
+                />
+                <textarea
+                  {...register("descriptionTwo")}
+                  required
+                  tabIndex={0}
+                  aria-label="leave a message"
+                  type="text"
+                  className="h-36 text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200  resize-none"
+                  placeholder="Descripion Two"
+                />
+                <textarea
+                  {...register("facilities")}
+                  required
+                  tabIndex={0}
+                  aria-label="leave a message"
+                  type="text"
+                  className="h-36 text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200  resize-none"
+                  placeholder="Facilities (Separate with comma)"
                 />
               </div>
-            </div>
-            <div className="mt-8">
-              <label
-                for="add-room-modal"
-                className="mt-9 text-base font-semibold leading-none text-white py-4 px-10 bg-secondary rounded hover:bg-primary focus:ring-2 focus:ring-offset-2 focus:ring-secondary focus:outline-none capitalize"
-              >
-                add room
-              </label>
             </div>
 
             <div className="flex items-center justify-center w-full">
@@ -156,7 +244,7 @@ const AddHotel = () => {
                 type="submit"
                 className="mt-9 text-base font-semibold leading-none text-white py-4 px-10 bg-secondary rounded hover:bg-primary focus:ring-2 focus:ring-offset-2 focus:ring-secondary focus:outline-none"
               >
-                Add Hotel Package
+                Add Tour Package
               </button>
             </div>
           </form>

@@ -4,10 +4,12 @@ import React from "react";
 
 import { toast } from "react-toastify";
 import swal from "sweetalert";
+import UseHooks from "../../../../Components/ashraful.Component/UseHooks/UseHooks";
 import useHotel from "../../../../hooks/useHotels";
 
 const ManageHotels = () => {
   const [hotels] = useHotel();
+  const { baseURL } = UseHooks();
   const EditHotel = (id) => {};
 
   const deleteHotel = (id) => {
@@ -19,7 +21,7 @@ const ManageHotels = () => {
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        fetch(`http://localhost:5500/api/v1/admin/delete-hotel?id=${id}`, {
+        fetch(`${baseURL}/api/v1/admin/delete-hotel?id=${id}`, {
           method: "DELETE",
           headers: {
             "content-type": "application/json",

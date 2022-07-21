@@ -23,22 +23,23 @@ const UserDetails = ({ user, index, refetch }) => {
       });
   };
 
-  //   const handleRemoveAdmin = () => {
-  //     fetch(`http://localhost:5500/api/v1/admin/delete-one-user?email=${email}`, {
-  //       method: "PATCH",
-  //       headers: {
-  //         "content-type": "application/json",
-  //         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-  //       },
-  //     })
-  //       .then((res) => res.json())
-  //       .then((data) => {
-  //         if (data.modifiedCount > 0) {
-  //           toast("Successfully Remove an Admin");
-  //           refetch();
-  //         }
-  //       });
-  //   };
+  const handleRemoveAdmin = () => {
+    fetch(`http://localhost:5500/api/v1/admin/remove-admin?email=${email}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        const { deletedCount } = data?.data;
+        if (deletedCount > 0) {
+          toast("Successfully Remove admin");
+          refetch();
+        }
+      });
+  };
 
   const handleRemoveUser = (id) => {
     fetch(`http://localhost:5500/api/v1/admin/delete-one-user?id=${id}`, {
@@ -100,7 +101,7 @@ const UserDetails = ({ user, index, refetch }) => {
           </button>
         ) : (
           <button
-            // onClick={handleRemoveAdmin}
+            onClick={handleRemoveAdmin}
             class="btn btn-xs btn-outline btn-secondary"
           >
             Remove Admin

@@ -16,7 +16,8 @@ import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Loading from "../../Components/Loading";
-import UseToken from "../../Components/UseToken";
+
+import useToken from "../../hooks/useToken";
 import auth from "../../firebase.init";
 
 const SigninLeft = () => {
@@ -34,7 +35,8 @@ const SigninLeft = () => {
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
 
-  const [token] = UseToken(user?.email);
+  const token = useToken(user?.email);
+  console.log(user?.email, token);
 
   let signinError;
 
