@@ -12,6 +12,9 @@ const Tour = () => {
   const [paginatedData, set_paginatedData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [searchPg, setSearchPg] = useState(true);
+  const [priceErr, setPriceErr] = useState(false);
+  const [price, setPrice] = useState(100);
+
   const [currentPage, set_currentPage] = useState(1);
   const { baseURL } = UseHooks();
 
@@ -28,6 +31,7 @@ const Tour = () => {
           console.log(allData);
           if (allData) {
             setLoading(false);
+            setSearchPg(true);
           }
           set_allTour_D(allData);
           set_paginatedData(_(allData).slice(0).take(pageSize).value());
@@ -38,6 +42,28 @@ const Tour = () => {
       console.log(error);
     }
   }, [baseURL]);
+  /* ----------------------------------------------------------------*/
+  /*                 PRICE RANGE FILTERING FUNCTIONALITY             */
+  /* ----------------------------------------------------------------*/
+  const handlePrice = (num) => {
+    setPrice(num);
+  };
+
+  useEffect(() => {
+    if (price > 100) {
+      const filterPrice = allTour_D.filter(
+        (hData) => hData.price < parseInt(price, 10)
+      );
+      setSearchPg(false);
+      set_paginatedData(filterPrice);
+    } else {
+      setSearchPg(false);
+      setPriceErr(true);
+      set_paginatedData([]);
+    }
+  }, [price]);
+
+  console.log(price);
 
   /* ----------------------------------------------------------------*/
   /*                  PAGINATION FUNCTIONALITY START                 */
@@ -92,6 +118,7 @@ const Tour = () => {
                 handleSearchFiltering={handleSearchFiltering}
                 handleFilterNum={handleFilterNum}
                 allTour_D={allTour_D}
+                handlePrice={handlePrice}
               />
             </div>
             <div className="col-span-3">
@@ -104,8 +131,17 @@ const Tour = () => {
                   ))
                 ) : (
                   <div className="col-span-3 text-3xl p-2 text-center text-red-500 font-semibold">
-                    There are no tours for your search keyword. <br />
-                    Please try searching with other keywords.
+                    {priceErr ? (
+                      <p>
+                        There are no tours for your Price Range. <br />
+                        Please try to increase your price Amount.
+                      </p>
+                    ) : (
+                      <p>
+                        There are no tours for your search keyword. <br />
+                        Please try searching with other keywords.
+                      </p>
+                    )}
                   </div>
                 )}
               </div>

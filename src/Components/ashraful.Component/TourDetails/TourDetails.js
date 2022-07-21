@@ -73,7 +73,7 @@ const TourDetails = () => {
             <span className="text-red-500 mr-2">
               <CgEreader />
             </span>{" "}
-            {singleD?.city}
+            {singleD?.address}
           </div>
 
           <div className="flex items-center">
@@ -83,7 +83,7 @@ const TourDetails = () => {
               color="gray"
               count={5}
               edit={false}
-              value={4}
+              value={singleD?.rating}
             />
             <span className="ml-2">{singleD?.rating} Rating</span>
           </div>
@@ -107,9 +107,6 @@ const TourDetails = () => {
               url="https://youtu.be/FWETuLvKhNA"
             />
           </div>
-        </div>
-        <div>
-          <h3 className="text-3xl font-semibold">Our Rooms</h3>
         </div>
         <div>
           <h3 className="text-3xl font-semibold py-4">
@@ -248,7 +245,7 @@ const TourDetails = () => {
                  text-sm px-5 py-4 text-center dark:bg-blue-600 
                  dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               >
-                Register new account
+                Check Validation
               </button>
             </form>
 

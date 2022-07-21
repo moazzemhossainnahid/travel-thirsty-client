@@ -1,10 +1,20 @@
 import React from "react";
 import Fade from "react-reveal/Fade";
 import Count from "./Count";
+
+// background: linear-gradient(135deg, #2ebdc4 0%, #68e5b2 100%)
 const Statistics = () => {
   return (
-    <div className="py-24 px-8 w-full relative bg-cover bg-no-repeat bg-center bg-gradient-to-r from-[#2ebdc4] to-[#68e5b2]">
-      <div className="h-full flex justify-center items-center">
+    <div
+      style={{}}
+      className="bg-gradient-to-tr from-[#05200e] to-[#1e684b] h-full w-full relative bg-cover bg-no-repeat bg-center "
+    >
+      <img
+        src="https://i.ibb.co/1dpzpQ0/banners.webp"
+        alt=""
+        className="h-full w-full object-cover absolute mix-blend-overlay"
+      />
+      <div className="h-full flex py-40 justify-center items-center">
         <div>
           <Fade left>
             <div className="text-center">

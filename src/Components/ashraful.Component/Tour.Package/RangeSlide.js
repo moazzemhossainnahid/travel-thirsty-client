@@ -1,10 +1,10 @@
 import MultiRangeSlider from "multi-range-slider-react";
 import React, { useState } from "react";
 import "./RangeSlide.css";
-const RangeSlide = () => {
-  const [minValue, set_minValue] = useState(70);
+const RangeSlide = ({ handlePrice }) => {
+  const [minValue, set_minValue] = useState(111);
   const [maxValue, set_maxValue] = useState(210);
-
+  handlePrice(maxValue - minValue);
   const handleInput = (e) => {
     set_minValue(e.minValue);
     set_maxValue(e.maxValue);
@@ -20,7 +20,7 @@ const RangeSlide = () => {
              border-gray-300 text-gray-700 focus:outline-none
               focus:ring-1 focus:ring-red-400 focus:border-red-400
               rounded mr-2 input-min"
-            defaultValue={minValue}
+            value={minValue}
           />
         </div>
         <div className="pt-2 separator"> ~ </div>
@@ -28,7 +28,7 @@ const RangeSlide = () => {
           <input
             type="number"
             className="w-full py-2 shadow appearance-none border border-gray-300 text-gray-700 focus:outline-none focus:ring-1 focus:ring-red-400 focus:border-red-400 rounded ml-2 input-max"
-            defaultValue={maxValue}
+            value={maxValue}
           />
         </div>
       </div>

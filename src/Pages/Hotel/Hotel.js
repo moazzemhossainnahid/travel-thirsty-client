@@ -12,6 +12,9 @@ const Hotel = () => {
   const [paginatedData, set_paginatedData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [searchPg, setSearchPg] = useState(true);
+  const [priceErr, setPriceErr] = useState(false);
+  const [price, setPrice] = useState(10);
+
   const [currentPage, set_currentPage] = useState(1);
   const { baseURL } = UseHooks();
 
@@ -27,6 +30,7 @@ const Hotel = () => {
           const allData = data.data.data;
           if (allData) {
             setLoading(false);
+            setSearchPg(true);
           }
           set_allTour_D(allData);
           set_paginatedData(_(allData).slice(0).take(pageSize).value());
@@ -36,6 +40,29 @@ const Hotel = () => {
       console.log(error);
     }
   }, [baseURL]);
+
+  /* ----------------------------------------------------------------*/
+  /*                 PRICE RANGE FILTERING FUNCTIONALITY             */
+  /* ----------------------------------------------------------------*/
+  const handlePrice = (num) => {
+    setPrice(num);
+  };
+  useEffect(() => {
+    if (price > 100) {
+      const filterPrice = allTour_D.filter(
+        (hData) => hData.price < parseInt(price, 10)
+      );
+      setSearchPg(false);
+
+      set_paginatedData(filterPrice);
+    } else {
+      set_paginatedData([]);
+      setSearchPg(false);
+      setPriceErr(true);
+    }
+  }, [price]);
+
+  console.log(price);
 
   /* ----------------------------------------------------------------*/
   /*                  PAGINATION FUNCTIONALITY START                 */
@@ -80,6 +107,10 @@ const Hotel = () => {
     set_paginatedData(filterData);
   };
 
+  /* ----------------------------------------------------------------*/
+  /*                SEARCH FILTERING FUNCTIONALITY END               */
+  /* ----------------------------------------------------------------*/
+
   return (
     <div className="">
       <HotelHeader />
@@ -91,6 +122,7 @@ const Hotel = () => {
                 handleSearchFiltering={handleSearchFiltering}
                 handleFilterNum={handleFilterNum}
                 allTour_D={allTour_D}
+                handlePrice={handlePrice}
               />
             </div>
             <div className="col-span-3">
@@ -104,8 +136,17 @@ const Hotel = () => {
                     ))
                   ) : (
                     <div className="col-span-3 text-3xl p-2 text-center text-red-500 font-semibold">
-                      There are no hotels for your search keyword. <br />
-                      Please try searching with other keywords.
+                      {priceErr ? (
+                        <p>
+                          There are no hotels for your Price Range. <br />
+                          Please try to increase your price Amount.
+                        </p>
+                      ) : (
+                        <p>
+                          There are no hotels for your search keyword. <br />
+                          Please try searching with other keywords.
+                        </p>
+                      )}
                     </div>
                   )}
                 </div>

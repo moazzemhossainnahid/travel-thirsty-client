@@ -1,14 +1,26 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import Carousel from "react-elastic-carousel";
 import { CgEreader } from "react-icons/cg";
 import ReactPlayer from "react-player";
 import ReactStars from "react-rating-stars-component";
 import { useParams } from "react-router-dom";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
 import hook from "../../ashraful.Component/UseHooks/UseHooks";
 import Loading from "../../Loading";
+
 const HotelsDetails = () => {
-  const [startDate, setStartDate] = useState(new Date());
+  var settings = {
+    dots: true,
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    speed: 1500,
+    autoplaySpeed: 3000,
+  };
+  // const [startDate, setStartDate] = useState(new Date());
   const [singleD, setSingleData] = useState({});
   const [loading, setLoading] = useState(false);
 
@@ -49,19 +61,20 @@ const HotelsDetails = () => {
       <div>{loading && <Loading />}</div>
 
       <div>
-        <Carousel
-          enableAutoPlay
-          autoPlaySpeed={2500}
-          loop={Infinity}
-          // breakPoints={breakPoints}
-        >
+        <Slider {...settings}>
           {singleD?.images &&
             singleD.images.map((data, index) => (
               <div key={index}>
-                <img className="w-screen" src={data} alt="" />
+                <div className="p-2">
+                  <img
+                    className="w-screen lg:h-[34] xl:h-[40rem]"
+                    src={data}
+                    alt=""
+                  />
+                </div>
               </div>
             ))}
-        </Carousel>
+        </Slider>
       </div>
       <div>
         <p className="text-lg">Our Best hotels & Rooms</p>
@@ -83,7 +96,8 @@ const HotelsDetails = () => {
               color="gray"
               count={5}
               edit={false}
-              value={4}
+              value={singleD?.rating}
+              // readOnly
             />
             <span className="ml-2">{singleD?.rating} Rating</span>
           </div>
@@ -109,7 +123,68 @@ const HotelsDetails = () => {
           </div>
         </div>
         <div>
-          <h3 className="text-3xl font-semibold">Our Rooms</h3>
+          <h3 className="text-3xl my-5 font-semibold">Our Rooms</h3>
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
+            {singleD.rooms &&
+              singleD.rooms.map((item) => (
+                <div className="col-span-1 mb-10 flex flex-col">
+                  <div className=" min-w-xs m-3 group h-full bg-white rounded-lg border border-gray-200 shadow-lg dark:bg-gray-800 dark:border-gray-700">
+                    <img
+                      className="rounded-t-lg h-80 w-full"
+                      src={item?.image}
+                      alt="coming"
+                    />
+                    <div className="divide-y p-2">
+                      <div className="p-3">
+                        <div className="flex justify-between">
+                          <h5 className="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                            {item.name}
+                          </h5>
+                          <div className="text-2xl font-semibold text-blue-400">
+                            ${item.price}
+                          </div>
+                        </div>
+                        <div className="flex justify-between py-2">
+                          <p className="flex items-center">
+                            <span
+                              className="-py-10"
+                              style={{ fontSize: "5px !important" }}
+                            >
+                              <ReactStars
+                                size="20"
+                                color="gray"
+                                activeColor="red"
+                                edit={false}
+                                value={item?.rating}
+                              />
+                            </span>
+                            <span className="ml-2">{item?.rating} Rating</span>
+                          </p>
+                          <p className=" font-semibold text-blue-400">/night</p>
+                        </div>
+                        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                          {item?.description}
+                        </p>
+                      </div>
+                      <div className="flex justify-between px-5 py-1">
+                        <p className="flex items-center">
+                          <span className="mr-1 ">
+                            <CgEreader />
+                          </span>
+                          {item?.city}
+                        </p>
+                        <button
+                          // onClick={() => handleButton(data._id)}
+                          className="bg-green-400 px-3 p-1 text-white rounded"
+                        >
+                          Booking
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+          </div>
         </div>
         <div>
           <h3 className="text-3xl font-semibold py-4">
