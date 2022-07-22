@@ -38,9 +38,10 @@ const Hotel = () => {
                   setLoading(false);
                   setSearchPg(true);
                 }
-                // resolve(allData);
+
                 set_allTour_D(allData);
                 set_paginatedData(_(allData).slice(0).take(pageSize).value());
+                resolve(allData);
               });
           }, 1500);
         } catch (err) {
@@ -113,8 +114,6 @@ const Hotel = () => {
       setPriceErr(true);
     }
   }, [price]);
-
-  console.log(price);
 
   /* ----------------------------------------------------------------*/
   /*                  PAGINATION FUNCTIONALITY START                 */

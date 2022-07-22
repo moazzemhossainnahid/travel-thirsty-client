@@ -39,7 +39,7 @@ const HotelSlider = ({ Data }) => {
               <p className="absolute h-full w-full insert-0 flex justify-center items-center">
                 <span
                   onClick={() => handleButton(data._id)}
-                  className=" group-hover:bg-white  opacity-0 group-hover:opacity-100 p-5 rounded-full "
+                  className=" group-hover:bg-white cursor-pointer opacity-0 group-hover:opacity-100 p-5 rounded-full "
                 >
                   <BiSearchAlt2 className="" />
                 </span>
