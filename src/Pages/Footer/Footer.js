@@ -15,10 +15,7 @@ const Footer = () => {
             <Fade left>
               <div className="flex gap-3 items-center">
                 <div class="cursor-pointer w-12">
-                  <img
-                    src="https://i.ibb.co/8XnNFJ2/plane-travel-flight-tourism-travel-icon-png-10.png"
-                    alt="logo"
-                  />
+                  <img src="https://i.ibb.co/vwKdjV4/icons.png" alt="logo" />
                 </div>
 
                 <div>

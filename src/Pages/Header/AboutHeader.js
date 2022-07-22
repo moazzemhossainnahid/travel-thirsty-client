@@ -50,7 +50,7 @@ const AboutHeader = () => {
           <a className="flex items-center gap-1" href="/">
             <img
               className="w-12"
-              src="https://tuk-cdn.s3.amazonaws.com/can-uploader/footer_5_marketing_svg1.svg"
+              src="https://i.ibb.co/vwKdjV4/icons.png"
               alt=""
             />{" "}
             <span className="text-3xl font-bold">Travel Thirsty</span>

@@ -8,19 +8,52 @@ const Tour = () => {
   const [tourData, setTourData] = useState([]);
   const [loading, setLoading] = useState(false);
   const { baseURL } = UseHooks();
+
+  /* ----------------------------------------------------------------*/
+  /*                       LOAD ALL TOUR DATA                        */
+  /* ----------------------------------------------------------------*/
   useEffect(() => {
     setLoading(true);
-    setTimeout(async () => {
-      await axios.get(`${baseURL}/tour/all-tour-plan`).then((data) => {
-        const allTour = data.data.data;
+    try {
+      setTimeout(async () => {
+        const result = await axios.get(`${baseURL}/api/v1/tour/all-tour-plan`);
+
+        const allTour = await result.data.data;
         console.log(allTour);
         if (allTour) {
           setLoading(false);
         }
         setTourData(allTour);
-      });
-    }, 1500);
+      }, 1500);
+    } catch (error) {
+      setTimeout(async () => {
+        const result = await axios.get(`${baseURL}/api/v1/tour/all-tour-plan`);
+
+        const allTour = await result.data.data;
+        console.log(allTour);
+        if (allTour) {
+          setLoading(false);
+        }
+        setTourData(allTour);
+      }, 1500);
+      console.log(error);
+    } finally {
+      setTimeout(async () => {
+        const result = await axios.get(`${baseURL}/api/v1/tour/all-tour-plan`);
+
+        const allTour = await result.data.data;
+        console.log(allTour);
+        if (allTour) {
+          setLoading(false);
+        }
+        setTourData(allTour);
+      }, 1500);
+    }
   }, [baseURL]);
+
+  /* ----------------------------------------------------------------*/
+  /*                       FUNCTIONALITY END                         */
+  /* ----------------------------------------------------------------*/
   return (
     <div className="bg-[#F8FAFF] py-16">
       <Fade right>

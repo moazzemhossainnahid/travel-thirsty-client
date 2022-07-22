@@ -5,7 +5,9 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import { useEffect } from "react";
 import {
+  useAuthState,
   useCreateUserWithEmailAndPassword,
   useSignInWithFacebook,
   useSignInWithGithub,
@@ -20,6 +22,7 @@ import UseToken from "../../Components/UseToken";
 import auth from "../../firebase.init";
 
 const SignupRight = () => {
+  const [user] = useAuthState(auth);
   const [createUserWithEmailAndPassword, cuser, cloading, cerror] =
     useCreateUserWithEmailAndPassword(auth);
   const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
@@ -36,7 +39,23 @@ const SignupRight = () => {
 
   let signupError;
 
-  const [token] = UseToken(cuser || guser || gituser || fuser);
+  const [token] = UseToken(user?.email);
+  console.log(token);
+
+  useEffect(() => {
+    if (user) {
+      fetch("http://localhost:5500/api/v1/user/add-user", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({
+          name: user?.displayName,
+          email: user?.email,
+        }),
+      });
+    }
+  }, [user]);
 
   if (cloading || gloading || gitloading || floading) {
     return <Loading />;
@@ -63,7 +82,7 @@ const SignupRight = () => {
     const email = data.email;
     const password = data.password;
     await createUserWithEmailAndPassword(email, password);
-    await updateProfile({ displayName: displayName }).then(() => {
+    await updateProfile({ displayName }).then(() => {
       reset();
     });
   };

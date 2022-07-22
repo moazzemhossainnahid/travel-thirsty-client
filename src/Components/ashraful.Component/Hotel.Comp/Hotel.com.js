@@ -8,21 +8,53 @@ const Hotel = () => {
   const [hotelData, setHotelData] = useState([]);
   const [loading, setLoading] = useState(false);
   const { baseURL } = UseHooks();
+  /* ----------------------------------------------------------------*/
+  /*                       LOAD ALL HOTEL DATA                       */
+  /* ----------------------------------------------------------------*/
   useEffect(() => {
     setLoading(true);
-    setTimeout(async () => {
-      await axios
-        .get(`${baseURL}/hotels/get-all-hotel`)
+    try {
+      setTimeout(async () => {
+        const result = await axios.get(
+          `${baseURL}/api/v1/hotels/get-all-hotel`
+        );
 
-        .then((data) => {
-          const allTour = data.data.data;
-          if (allTour) {
-            setLoading(false);
-          }
-          setHotelData(allTour);
-        });
-    }, 1500);
+        const allTour = result.data.data;
+        if (allTour) {
+          setLoading(false);
+        }
+        setHotelData(allTour);
+      }, 1500);
+    } catch (error) {
+      setTimeout(async () => {
+        const result = await axios.get(
+          `${baseURL}/api/v1/hotels/get-all-hotel`
+        );
+
+        const allTour = result.data.data;
+        if (allTour) {
+          setLoading(false);
+        }
+        setHotelData(allTour);
+      }, 1500);
+      console.log(error);
+    } finally {
+      setTimeout(async () => {
+        const result = await axios.get(
+          `${baseURL}/api/v1/hotels/get-all-hotel`
+        );
+
+        const allTour = result.data.data;
+        if (allTour) {
+          setLoading(false);
+        }
+        setHotelData(allTour);
+      }, 1500);
+    }
   }, [baseURL]);
+  /* ----------------------------------------------------------------*/
+  /*                       FUNCTIONALITY END                         */
+  /* ----------------------------------------------------------------*/
   return (
     <div className="py-16">
       <Fade right>

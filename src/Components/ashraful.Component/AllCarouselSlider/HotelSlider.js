@@ -25,6 +25,8 @@ const HotelSlider = ({ Data }) => {
       enableAutoPlay
       autoPlaySpeed={2500}
       loop={Infinity}
+      // infiniteLoop={true}
+      infiniteLoop="true"
       breakPoints={breakPoints}
     >
       {Data.length &&

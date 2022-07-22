@@ -24,6 +24,7 @@ const TourSlider = ({ Data }) => {
       enableAutoPlay
       autoPlaySpeed={2500}
       loop={Infinity}
+      infiniteLoop="true"
       breakPoints={breakPoints}
     >
       {Data.length &&
