@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { CgEreader } from "react-icons/cg";
@@ -17,6 +18,7 @@ import "swiper/css/autoplay";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
+import auth from "../../../firebase.init";
 import UseHook from "../../ashraful.Component/UseHooks/UseHooks";
 import Loading from "../../Loading";
 const customStyles = {
@@ -33,6 +35,7 @@ const customStyles = {
 };
 const TourDetails = () => {
   // const [startDate, setStartDate] = useState(new Date());
+  const [user] = useAuthState(auth);
   const [singleD, setSingleData] = useState({});
   const [tour_D, setTour_D] = useState([]);
   const [bookingD, setBookingD] = useState({});
@@ -109,17 +112,18 @@ const TourDetails = () => {
   const onSubmitBooking = (data) => {
     const book_data = {
       user_name: data.user_name,
-      user_email: data.user_email,
+      user_email: user?.email,
       from_date: data.from_d,
       end_date: data.end_d,
-      booking_price: data.booking_price,
+      booking_price: bookingD.price,
     };
     const bookingAllTD = {
-      hotelInformation: bookingD,
-      userInformaiton: book_data,
+      ...bookingD,
+      ...book_data,
     };
-    reset();
 
+    reset();
+    console.log(bookingAllTD);
     axios
       .post(`${baseURL}/api/v1/user/post-service-booking`, bookingAllTD)
       .then((data) => {
@@ -134,8 +138,10 @@ const TourDetails = () => {
   /*                HANDLE BOOKING FUNCTIONALITY             */
   /*---------------------------------------------------------*/
   const handleBooking = (id) => {
-    const filtering = singleD?.rooms?.find((item) => item._id === id);
+    const filtering = singleD?.tour?.find((item) => item._id === id);
+    console.log(singleD);
     setBookingD(filtering);
+    console.log(filtering);
     openModal();
   };
   /* ----------------------------------------------------------------*/
@@ -371,6 +377,7 @@ const TourDetails = () => {
                       placeholder="Enter Your Email"
                       {...register("email")}
                       required
+                      value={user?.email}
                     />
                   </div>
                 </Slide>
@@ -592,7 +599,7 @@ const TourDetails = () => {
             <input
               type="email"
               className="w-full py-4 my-2 rounded"
-              defaultValue={text.email}
+              value={user?.email}
               placeholder="type your email"
               {...register("user_email")}
               required
@@ -615,7 +622,7 @@ const TourDetails = () => {
             />
             <input
               type="number"
-              defaultValue={bookingD[0]?.price}
+              defaultValue={bookingD?.price}
               className="w-full py-4 my-2 rounded"
               placeholder="Enter price"
               {...register("booking_price")}
