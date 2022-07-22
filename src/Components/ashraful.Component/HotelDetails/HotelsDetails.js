@@ -10,9 +10,9 @@ import ReactPlayer from "react-player";
 import ReactStars from "react-rating-stars-component";
 import { Fade, Flip, Reveal, Slide } from "react-reveal";
 import { useParams } from "react-router-dom";
-import { toast } from "react-toastify";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
+import swal from "sweetalert";
 import { A11y, Autoplay, Navigation, Pagination } from "swiper";
 // Import Swiper styles
 import "swiper/css";
@@ -120,14 +120,18 @@ const HotelsDetails = () => {
       booking_price: data.booking_price,
     };
     // post-service-booking
-    const bookingAllRD = [...bookingD, book_data];
-    console.log(bookingAllRD);
+    const bookingAllRD = {
+      hotelInformation: bookingD,
+      userInformaiton: book_data,
+    };
+
     axios
-      .post(`${baseURL}/user/post-service-booking`, bookingAllRD)
+      .post(`${baseURL}/api/v1/user/post-hotel-booking`, bookingAllRD)
       .then((data) => {
-        console.log(data);
-        if (data) {
-          toast.success("Booking Room Successfully");
+        console.log(data.status);
+        if (data.status === 200) {
+          swal("Good job!", "Room Booking Successfully", "success");
+          closeModal();
         }
       });
   };

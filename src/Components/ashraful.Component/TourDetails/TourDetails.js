@@ -8,7 +8,7 @@ import ReactPlayer from "react-player";
 import ReactStars from "react-rating-stars-component";
 import { Fade, Flip, Reveal, Slide } from "react-reveal";
 import { useParams } from "react-router-dom";
-import { toast } from "react-toastify";
+import swal from "sweetalert";
 // import Carousel from "react-elastic-carousel";
 import { A11y, Autoplay, Navigation, Pagination } from "swiper";
 // Import Swiper styles
@@ -78,7 +78,7 @@ const TourDetails = () => {
   const onSubmit = (data) => {
     setText(data);
     console.log(data);
-    const filtering = singleD?.rooms?.filter(
+    const filtering = singleD?.tour?.filter(
       (item) =>
         (parseInt(item.guest1) === parseInt(data.guest) &&
           parseInt(item.children1) === parseInt(data.children)) ||
@@ -89,6 +89,7 @@ const TourDetails = () => {
     );
     setCheckBooking(filtering);
     setTour_D(filtering);
+    // console.log(filtering);
     reset();
   };
 
@@ -113,17 +114,18 @@ const TourDetails = () => {
       end_date: data.end_d,
       booking_price: data.booking_price,
     };
-    // post-service-booking
-    const bookingAllTD = [...bookingD, book_data];
-    console.log(bookingAllTD);
+    const bookingAllTD = {
+      hotelInformation: bookingD,
+      userInformaiton: book_data,
+    };
     reset();
 
     axios
       .post(`${baseURL}/api/v1/user/post-service-booking`, bookingAllTD)
       .then((data) => {
-        console.log(data);
-        if (data) {
-          toast.success("Booking Room Successfully");
+        if (data.status === 200) {
+          closeModal();
+          swal("Good job!", "Tour Booking Successfully", "success");
         }
       });
   };
@@ -132,7 +134,7 @@ const TourDetails = () => {
   /*                HANDLE BOOKING FUNCTIONALITY             */
   /*---------------------------------------------------------*/
   const handleBooking = (id) => {
-    const filtering = singleD?.rooms?.filter((item) => item._id === id);
+    const filtering = singleD?.tour?.filter((item) => item._id === id);
     setBookingD(filtering);
     openModal();
   };
@@ -243,7 +245,9 @@ const TourDetails = () => {
         <Fade right>
           {checkBooking.length ? (
             <div>
-              <h3 className="text-3xl my-5 font-semibold">Our Rooms</h3>
+              <h3 className="text-3xl my-5 font-semibold">
+                Specific Tour Place
+              </h3>
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
                 {tour_D.length ? (
                   tour_D.map((item, index) => (
@@ -372,62 +376,24 @@ const TourDetails = () => {
                 </Slide>
                 <Slide left>
                   <div className="mb-6 ">
-                    <div class="relative">
-                      <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-                        <svg
-                          aria-hidden="true"
-                          class="w-5 h-5 text-gray-500 dark:text-gray-400"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
-                            clip-rule="evenodd"
-                          ></path>
-                        </svg>
-                      </div>
-                      <input
-                        datepicker
-                        datepicker-autohide
-                        id="from_date"
-                        type="text"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded focus:ring-red-400 focus:border-red-400 block w-full pl-10 p-2.5 py-4  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="From Date"
-                        {...register("from_date")}
-                      />
-                    </div>
+                    <input
+                      id="from_date"
+                      type="date"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded focus:ring-red-400 focus:border-red-400 block w-full  p-2.5 py-4  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      placeholder="From Date"
+                      {...register("from_date")}
+                    />
                   </div>
                 </Slide>
                 <Slide right>
                   <div className="mb-6">
-                    <div class="relative">
-                      <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-                        <svg
-                          aria-hidden="true"
-                          class="w-5 h-5 text-gray-500 dark:text-gray-400"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
-                            clip-rule="evenodd"
-                          ></path>
-                        </svg>
-                      </div>
-                      <input
-                        datepicker
-                        datepicker-autohide
-                        id="end_date"
-                        type="text"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded focus:ring-red-400 focus:border-red-400 block w-full pl-10 p-2.5 py-4 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="End Date"
-                        {...register("end_date")}
-                      />
-                    </div>
+                    <input
+                      id="end_date"
+                      type="date"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded focus:ring-red-400 focus:border-red-400 block w-full  p-2.5 py-4 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      placeholder="End Date"
+                      {...register("end_date")}
+                    />
                   </div>
                 </Slide>
                 <Slide left>
