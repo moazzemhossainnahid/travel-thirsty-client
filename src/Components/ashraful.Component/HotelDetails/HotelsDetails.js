@@ -129,7 +129,7 @@ const HotelsDetails = () => {
     // console.log(bookingD, book_data);
     // console.log(bookingAllRD);
     axios
-      .post(`${baseURL}/api/v1/user/post-service-booking`, bookingAllRD)
+      .post(`${baseURL}/api/v1/user/post-hotel-booking`, bookingAllRD)
       .then((data) => {
         console.log(data);
         if (data) {

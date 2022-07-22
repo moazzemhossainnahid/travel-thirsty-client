@@ -35,7 +35,7 @@ const TourDetails = () => {
   // const [startDate, setStartDate] = useState(new Date());
   const [singleD, setSingleData] = useState({});
   const [tour_D, setTour_D] = useState([]);
-  const [bookingD, setBookingD] = useState([]);
+  const [bookingD, setBookingD] = useState({});
   const [text, setText] = useState({});
   const [checkBooking, setCheckBooking] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -132,7 +132,7 @@ const TourDetails = () => {
   /*                HANDLE BOOKING FUNCTIONALITY             */
   /*---------------------------------------------------------*/
   const handleBooking = (id) => {
-    const filtering = singleD?.rooms?.filter((item) => item._id === id);
+    const filtering = singleD?.rooms?.find((item) => item._id === id);
     setBookingD(filtering);
     openModal();
   };
