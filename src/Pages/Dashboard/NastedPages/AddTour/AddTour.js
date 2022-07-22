@@ -23,16 +23,16 @@ const AddTour = () => {
       .then((result) => {
         if (result.success) {
           const img = result.data.url;
-          console.log(img);
+
           const tourData = {
             name: name,
             image: img,
             country: country,
             description: description,
           };
-
+          console.log(tourData);
           // Post to database
-          fetch(`http://localhost:5000/tour`, {
+          fetch(`http://localhost:5500/api/v1/admin/post-tour-plan`, {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -41,12 +41,11 @@ const AddTour = () => {
             body: JSON.stringify(tourData),
           })
             .then((res) => res.json())
-            .then((inserted) => {
-              if (inserted.insertedId) {
-                toast.success("Tour Package Add Successfully");
+            .then((result) => {
+              console.log(result);
+              if (result.success) {
+                toast.success(result.message);
                 reset();
-              } else {
-                toast.error("Faild to Add Tour Package");
               }
             });
         }
