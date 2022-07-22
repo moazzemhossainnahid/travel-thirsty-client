@@ -238,6 +238,14 @@ const AddHotel = () => {
                 />
               </div>
             </div>
+            <div className="mt-8">
+              <label
+                for="add-room-modal"
+                className="mt-9 text-base font-semibold leading-none text-white py-4 px-10 bg-secondary rounded hover:bg-primary focus:ring-2 focus:ring-offset-2 focus:ring-secondary focus:outline-none capitalize"
+              >
+                add room
+              </label>
+            </div>
 
             <div className="flex items-center justify-center w-full">
               <button
