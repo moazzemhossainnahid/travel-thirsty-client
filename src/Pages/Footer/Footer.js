@@ -2,27 +2,24 @@ import React from "react";
 import { Fade, Slide, Zoom } from "react-reveal";
 const Footer = () => {
   return (
-    <div className="relative flex justify-start h-full pt-20 md:justify-center md:items-end ">
+    <div class="relative flex justify-start h-full pt-20 md:justify-center md:items-end ">
       <img
-        className="absolute dark:hidden object-cover top-10 h-full w-full xl:mt-10 z-0"
+        class="absolute dark:hidden object-cover top-10 h-full w-full xl:mt-10 z-0"
         src="https://tuk-cdn.s3.amazonaws.com/can-uploader/footer_5_marketing_background.png"
         alt="background"
       />
 
-      <div className="flex pt-36 md:pt-32 lg:pt-40 xl:pt-96 px-4 md:px-6  xl:px-20 flex-col justify-start items-start md:justify-center md:items-center relative z-10">
-        <div className="flex flex-col items-start justify-start xl:justify-center xl:space-x-8 xl:flex-row">
-          <div className="flex justify-start items-center space-x-4">
+      <div class="flex pt-36 md:pt-32 lg:pt-40 xl:pt-96 px-4 md:px-6  xl:px-20 flex-col justify-start items-start md:justify-center md:items-center relative z-10">
+        <div class="flex flex-col items-start justify-start xl:justify-center xl:space-x-8 xl:flex-row">
+          <div class="flex justify-start items-center space-x-4">
             <Fade left>
               <div className="flex gap-3 items-center">
-                <div className="cursor-pointer w-12">
-                  <img
-                    src="https://tuk-cdn.s3.amazonaws.com/can-uploader/footer_5_marketing_svg1.svg"
-                    alt="logo"
-                  />
+                <div class="cursor-pointer w-12">
+                  <img src="https://i.ibb.co/vwKdjV4/icons.png" alt="logo" />
                 </div>
 
                 <div>
-                  <p className="w-60 text-xl xl:text-2xl font-semibold leading-normal text-white">
+                  <p class="w-60 text-xl xl:text-2xl font-semibold leading-normal text-white">
                     Travel Thirsty
                   </p>
                 </div>
@@ -36,16 +33,16 @@ const Footer = () => {
                 <Slide left>Community</Slide>
               </h2>
               <button class="text-left text-base hover:text-gray-400 leading-none text-gray-100">
-              <Slide right>About Us</Slide>
+                <Slide right>About Us</Slide>
               </button>
               <button class="text-left text-base hover:text-gray-400 leading-none text-gray-100">
-              <Slide left>Guidelines and how to</Slide>
+                <Slide left>Guidelines and how to</Slide>
               </button>
               <button class="text-left text-base hover:text-gray-400 leading-none text-gray-100">
-              <Slide right>Quote from the best</Slide>
+                <Slide right>Quote from the best</Slide>
               </button>
               <button class="text-left text-base hover:text-gray-400 leading-none text-gray-100">
-              <Slide left>How to start a blog</Slide>
+                <Slide left>How to start a blog</Slide>
               </button>
             </div>
 
@@ -72,33 +69,33 @@ const Footer = () => {
 
             <div class=" xl:w-72 flex justify-start items-start flex-col space-y-6">
               <h2 class="text-base xl:text-xl font-bold xl:font-semibold leading-4 xl:leading-5 text-white">
-              <Slide left>Resources</Slide>
+                <Slide left>Resources</Slide>
               </h2>
               <button class="text-base text-left hover:text-gray-400 leading-none text-gray-100">
-              <Slide right>Accessibility</Slide>
+                <Slide right>Accessibility</Slide>
               </button>
               <button class="text-base text-left hover:text-gray-400 leading-none text-gray-100">
-              <Slide left>Usability</Slide>
+                <Slide left>Usability</Slide>
               </button>
               <button class="text-base text-left hover:text-gray-400 leading-none text-gray-100">
-              <Slide right>Marketplace</Slide>
+                <Slide right>Marketplace</Slide>
               </button>
               <button class="text-base text-left hover:text-gray-400 leading-none text-gray-100">
-              <Slide left>Design & Dev</Slide>
+                <Slide left>Design & Dev</Slide>
               </button>
               <button class="text-base text-left hover:text-gray-400 leading-none text-gray-100">
-              <Slide right>Marketplace</Slide>
+                <Slide right>Marketplace</Slide>
               </button>
             </div>
           </div>
         </div>
-          
         <div class="mt-12 flex  xl:justify-between xl:flex-row flex-col-reverse items-center xl:items-start w-full ">
-          
           <p class="mt-10 md:mt-12 xl:mt-0 flex gap-2 text-sm leading-none text-white">
-          <Zoom>{new Date().getFullYear()} The Travel Company. All Rights Reserved</Zoom>
+            <Zoom>
+              {new Date().getFullYear()} The Travel Company. All Rights Reserved
+            </Zoom>
           </p>
-          
+
           <div class="mt-10 md:mt-12 xl:mt-0 md:flex-row flex-col flex md:justify-center w-full md:w-auto justify-start items-start space-y-4 md:space-y-0 md:items-center md:space-x-4 xl:space-x-6">
             <button class="text-base leading-none text-white hover:text-gray-300">
               <Zoom>Terms of service</Zoom>
@@ -129,7 +126,7 @@ const Footer = () => {
                 />
               </svg>
             </button>
-            <button className="text-white hover:text-gray-200 w-6">
+            <button class="text-white hover:text-gray-200 w-6">
               <svg
                 width="24"
                 height="24"
@@ -145,7 +142,7 @@ const Footer = () => {
                 />
               </svg>
             </button>
-            <button className="text-white hover:text-gray-200 w-6">
+            <button class="text-white hover:text-gray-200 w-6">
               <svg
                 width="24"
                 height="24"
@@ -159,7 +156,7 @@ const Footer = () => {
                 />
               </svg>
             </button>
-            <button className="text-white hover:text-gray-200 w-6">
+            <button class="text-white hover:text-gray-200 w-6">
               <svg
                 width="24"
                 height="24"
@@ -174,9 +171,7 @@ const Footer = () => {
               </svg>
             </button>
           </div>
-
         </div>
-
       </div>
     </div>
   );

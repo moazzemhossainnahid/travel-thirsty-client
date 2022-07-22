@@ -3,6 +3,7 @@ import Carousel from "react-elastic-carousel";
 import { BiSearchAlt2 } from "react-icons/bi";
 import { CgEreader } from "react-icons/cg";
 import ReactStars from "react-rating-stars-component";
+import { useNavigate } from "react-router-dom";
 
 const TourSlider = ({ Data }) => {
   const breakPoints = [
@@ -13,11 +14,17 @@ const TourSlider = ({ Data }) => {
     { width: 1450, itemsToShow: 5 },
     { width: 1750, itemsToShow: 5 },
   ];
+  const navigate = useNavigate();
+
+  const handleButton = (id) => {
+    navigate(`/tour/details/${id}`);
+  };
   return (
     <Carousel
       enableAutoPlay
       autoPlaySpeed={2500}
       loop={Infinity}
+      infiniteLoop="true"
       breakPoints={breakPoints}
     >
       {Data.length &&
@@ -28,14 +35,17 @@ const TourSlider = ({ Data }) => {
           >
             <div className="relative">
               <p className="absolute h-full w-full insert-0 flex justify-center items-center">
-                <span className=" group-hover:bg-white  opacity-0 group-hover:opacity-100 p-5 rounded-full ">
+                <span
+                  onClick={() => handleButton(data._id)}
+                  className=" group-hover:bg-white  opacity-0 group-hover:opacity-100 p-5 rounded-full "
+                >
                   <BiSearchAlt2 className="" />
                 </span>
               </p>
               <a href="/#">
                 <img
                   className="rounded-t-lg h-80 w-full"
-                  src={data.img}
+                  src={data?.images[0]}
                   alt=""
                 />
               </a>
@@ -43,35 +53,39 @@ const TourSlider = ({ Data }) => {
             <div className="divide-y p-2">
               <div className="p-3">
                 <div className="flex justify-between">
-                  <h5 className="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                    {data.title}
+                  <h5 className="text-2xl capitalize font-semibold tracking-tight text-gray-900 dark:text-white">
+                    {data?.name}
                   </h5>
-                  <div className="text-2xl font-semibold">${data.price}</div>
+                  <div className="text-2xl font-semibold">${data?.price}</div>
                 </div>
                 <p className="flex items-center py-2">
                   <span
                     className="-py-10"
                     style={{ fontSize: "5px !important" }}
                   >
-                    <ReactStars size="20" edit={false} value={data.rate} />
+                    <ReactStars size="20" edit={false} value={data?.rating} />
                   </span>
-                  <span className="ml-2">{data.rate} Rating</span>
+                  <span className="ml-2">{data?.rating} Rating</span>
                 </p>
                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                  {data.description}
+                  {data?.description?.facilities[0]}
+                  {data?.description?.facilities[1]}
                 </p>
                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                  {data.day} days {data.night} nights
+                  {data?.duration?.day}-days, {data?.duration?.night}-nights
                 </p>
               </div>
               <div className="flex justify-between px-5 py-1">
-                <p className="flex items-center">
+                <p className="flex capitalize items-center">
                   <span className="mr-1 ">
                     <CgEreader />
                   </span>
-                  {data.area}
+                  {data?.city}
                 </p>
-                <button className="bg-green-400 px-3 p-1 text-white rounded">
+                <button
+                  onClick={() => handleButton(data._id)}
+                  className="bg-green-400 px-3 p-1 text-white rounded"
+                >
                   Discover
                 </button>
               </div>

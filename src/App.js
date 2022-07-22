@@ -30,30 +30,61 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Home/>} />
+        <Route path="/" element={<Home />} />
         <Route path="/tour" element={<Tour />}>
           <Route path="details/:id" element={<TourDetails />} />
         </Route>
         <Route path="/hotel" element={<Hotel />}>
           <Route path="details/:id" element={<HotelsDetails />} />
         </Route>
-        <Route path='/about' element={<About/>} />
-        <Route path='/contact' element={<Contact/>} />
-        <Route path='/profile' element={<RequireAuth><Profile/></RequireAuth>} />
-        <Route path='/addreview' element={<RequireAuth><AddReview/></RequireAuth>} />
-        <Route path='/bookings' element={<RequireAuth><Bookings/></RequireAuth>} />
-        <Route path="/dashboard" element={<RequireAuth><Dashboard/></RequireAuth>}>
-          <Route index element={<Welcome/>}/>
-          <Route path="addtour" element={<AddTour/>}/>
-          <Route path="addhotel" element={<AddHotel/>}/>
-          <Route path="manageusers" element={<ManageUsers/>}/>
-          <Route path="managehotels" element={<ManageHotels/>}/>
-          <Route path="managetours" element={<ManageTours/>}/>
-          <Route path="managereviews" element={<ManageReviews/>}/>
+        {/* <Route path="details/:id" element={} /> */}
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route
+          path="/profile"
+          element={
+            <RequireAuth>
+              <Profile />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/addreview"
+          element={
+            <RequireAuth>
+              <AddReview />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/bookings"
+          element={
+            <RequireAuth>
+              <Bookings />
+            </RequireAuth>
+          }
+        />
+
+        <Route
+          path="/dashboard"
+          element={
+            <RequireAuth>
+              <Dashboard />
+            </RequireAuth>
+          }
+        >
+          <Route index element={<Welcome />} />
+          <Route path="addtour" element={<AddTour />} />
+          <Route path="addhotel" element={<AddHotel />} />
+          <Route path="manageusers" element={<ManageUsers />} />
+          <Route path="managehotels" element={<ManageHotels />} />
+          <Route path="managetours" element={<ManageTours />} />
+          <Route path="managereviews" element={<ManageReviews />} />
         </Route>
-        <Route path='/signin' element={<Signin/>} />
-        <Route path='/signup' element={<Signup/>} />
-        <Route path='*' element={<NotFound/>} />
+
+        <Route path="/signin" element={<Signin />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
       <ToastContainer />

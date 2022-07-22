@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Authentication from "../../../Pages/Header/HeaderComponent/Authentication";
-import Nav from "../../../Pages/Header/HeaderComponent/Nav";
-import NavMobile from "../../../Pages/Header/HeaderComponent/NavMobile";
+import Authentication from "./HeaderComponent/Authentication";
+import Nav from "./HeaderComponent/Nav";
+import NavMobile from "./HeaderComponent/NavMobile";
 
-const HotelHDetails = () => {
+const HotelHeader = () => {
   const [bg, setBg] = useState(false);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ const HotelHDetails = () => {
         alt=""
         className="h-screen w-full object-cover absolute mix-blend-overlay"
       />
-      <div class="breadcrumbs flex flex-col justify-center items-center h-screen w-full text-white text-2xl font-bold">
+      <div className="breadcrumbs flex flex-col justify-center items-center h-screen w-full text-white text-2xl font-bold">
         <ul className="flex-row">
           <li className="">
             <Link to="/">Home</Link>
@@ -33,7 +33,7 @@ const HotelHDetails = () => {
           </li>
         </ul>
         <div className="flex-col py-5">
-          <h3 className="text-8xl font-bold">Hotel Details</h3>
+          <h3 className="text-8xl font-bold">Hotel</h3>
         </div>
       </div>
       <header
@@ -46,7 +46,7 @@ const HotelHDetails = () => {
           <a className="flex items-center gap-1" href="/">
             <img
               className="w-12"
-              src="https://tuk-cdn.s3.amazonaws.com/can-uploader/footer_5_marketing_svg1.svg"
+              src="https://i.ibb.co/vwKdjV4/icons.png"
               alt=""
             />{" "}
             <span className="text-3xl font-bold">Travel Thirsty</span>
@@ -69,4 +69,4 @@ const HotelHDetails = () => {
   );
 };
 
-export default HotelHDetails;
+export default HotelHeader;

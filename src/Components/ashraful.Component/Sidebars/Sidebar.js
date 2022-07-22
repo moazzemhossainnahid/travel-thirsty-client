@@ -1,7 +1,12 @@
 import React from "react";
 import ReactStars from "react-rating-stars-component";
 import RangeSlide from "../Tour.Package/RangeSlide";
-const Sidebar = ({ handleSearchFiltering, handleFilterNum, allTour_D }) => {
+const Sidebar = ({
+  handleSearchFiltering,
+  handleFilterNum,
+  allTour_D,
+  handlePrice,
+}) => {
   return (
     <div className=" bh-white px-4 pb-6 mt-3 shadow-lg border rounded-md overflow-hidden">
       <div className="divide-y divide-gray-200 space-y-5">
@@ -92,7 +97,7 @@ const Sidebar = ({ handleSearchFiltering, handleFilterNum, allTour_D }) => {
                 />
               </div>
               <div>
-                <RangeSlide />
+                <RangeSlide handlePrice={handlePrice} />
               </div>
               <br />
               <button
