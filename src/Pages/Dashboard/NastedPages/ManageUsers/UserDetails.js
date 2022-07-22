@@ -1,11 +1,13 @@
 import React from "react";
 import { toast } from "react-toastify";
+import UseHooks from "../../../../Components/ashraful.Component/UseHooks/UseHooks";
 
 const UserDetails = ({ user, index, refetch }) => {
   const { _id, email, role } = user;
+  const { baseURL } = UseHooks();
 
   const handleMakeAdmin = () => {
-    fetch(`http://localhost:5500/api/v1/admin/make-user-admin?email=${email}`, {
+    fetch(`${baseURL}/api/v1/admin/make-user-admin?email=${email}`, {
       method: "PATCH",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -24,7 +26,7 @@ const UserDetails = ({ user, index, refetch }) => {
   };
 
   const handleRemoveAdmin = () => {
-    fetch(`http://localhost:5500/api/v1/admin/remove-admin?email=${email}`, {
+    fetch(`${baseURL}/api/v1/admin/remove-admin?email=${email}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
@@ -42,7 +44,7 @@ const UserDetails = ({ user, index, refetch }) => {
   };
 
   const handleRemoveUser = (id) => {
-    fetch(`http://localhost:5500/api/v1/admin/delete-one-user?id=${id}`, {
+    fetch(`${baseURL}/api/v1/admin/delete-one-user?id=${id}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",

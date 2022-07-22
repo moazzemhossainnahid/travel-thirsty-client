@@ -21,8 +21,10 @@ import Loading from "../../Components/Loading";
 
 import useToken from "../../hooks/useToken";
 import auth from "../../firebase.init";
+import UseHooks from "../../Components/ashraful.Component/UseHooks/UseHooks";
 
 const SignupRight = () => {
+  const { baseURL } = UseHooks();
   const [user] = useAuthState(auth);
   const [createUserWithEmailAndPassword, cuser, cloading, cerror] =
     useCreateUserWithEmailAndPassword(auth);
@@ -45,7 +47,7 @@ const SignupRight = () => {
 
   useEffect(() => {
     if (user) {
-      fetch("http://localhost:5500/api/v1/user/add-user", {
+      fetch(`${baseURL}/api/v1/user/add-user`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -56,7 +58,7 @@ const SignupRight = () => {
         }),
       });
     }
-  }, [user]);
+  }, [user, baseURL]);
 
   if (cloading || gloading || gitloading || floading) {
     return <Loading />;
