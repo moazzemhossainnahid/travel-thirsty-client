@@ -82,7 +82,7 @@ const SignupRight = () => {
     const email = data.email;
     const password = data.password;
     await createUserWithEmailAndPassword(email, password);
-    await updateProfile({ displayName: displayName }).then(() => {
+    await updateProfile({ displayName }).then(() => {
       reset();
     });
   };
