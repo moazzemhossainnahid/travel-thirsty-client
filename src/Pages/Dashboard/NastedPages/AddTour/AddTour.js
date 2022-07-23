@@ -1,16 +1,27 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
+import UseHooks from "../../../../Components/ashraful.Component/UseHooks/UseHooks";
 
 const AddTour = () => {
   const { register, handleSubmit, reset } = useForm();
   const imageUrlKey = "e738f1d16de6b265746b7f82cc157644";
+  const { baseURL } = UseHooks();
 
   const handleAddTour = (data) => {
-    const name = data.name;
-    const country = data.country;
-    const description = data.description;
+    const {
+      name,
+      price,
+      address,
+      city,
+      day,
+      night,
+      descriptionOne,
+      descriptionTwo,
+      facilities,
+    } = data;
 
+    console.log(data);
     const image = data.image[0];
     const formData = new FormData();
     formData.append("image", image);
@@ -26,13 +37,24 @@ const AddTour = () => {
 
           const tourData = {
             name: name,
-            image: img,
-            country: country,
-            description: description,
+            price: parseFloat(price),
+            images: [img, img, img],
+            address,
+            city,
+            rating: 5,
+            duration: {
+              day: parseInt(day),
+              night: parseInt(night),
+            },
+            description: {
+              textOne: descriptionOne,
+              textTwo: descriptionTwo,
+              facilities: facilities.split(","),
+            },
           };
           console.log(tourData);
           // Post to database
-          fetch(`http://localhost:5500/api/v1/admin/post-tour-plan`, {
+          fetch(`${baseURL}/api/v1/admin/post-tour-plan`, {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -87,7 +109,7 @@ const AddTour = () => {
                   Package Price
                 </label>
                 <input
-                  {...register("country")}
+                  {...register("price")}
                   required
                   tabIndex={0}
                   arial-label="Please input email address"
@@ -115,10 +137,10 @@ const AddTour = () => {
             <div className="md:flex items-center mt-12">
               <div className="md:w-72 flex flex-col">
                 <label className="text-base font-semibold leading-none text-gray-800">
-                  Tour Duration
+                  Address
                 </label>
                 <input
-                  {...register("country")}
+                  {...register("address")}
                   required
                   tabIndex={0}
                   arial-label="Please input email address"
@@ -130,14 +152,45 @@ const AddTour = () => {
 
               <div className="md:w-72 flex flex-col md:ml-6 md:mt-0 mt-4">
                 <label className="text-base font-semibold leading-none text-gray-800">
-                  Tour Country
+                  City
                 </label>
                 <input
-                  {...register("country")}
+                  {...register("city")}
                   required
                   tabIndex={0}
                   arial-label="Please input email address"
                   type="name"
+                  className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200 placeholder-gray-100"
+                  placeholder="Please input Country"
+                />
+              </div>
+            </div>
+            <div className="md:flex items-center mt-12">
+              <div className="md:w-72 flex flex-col">
+                <label className="text-base font-semibold leading-none text-gray-800">
+                  Day
+                </label>
+                <input
+                  {...register("day")}
+                  required
+                  tabIndex={0}
+                  arial-label="Please input email address"
+                  type="number"
+                  className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200 placeholder-gray-100"
+                  placeholder="Please input Country"
+                />
+              </div>
+
+              <div className="md:w-72 flex flex-col md:ml-6 md:mt-0 mt-4">
+                <label className="text-base font-semibold leading-none text-gray-800">
+                  Night
+                </label>
+                <input
+                  {...register("night")}
+                  required
+                  tabIndex={0}
+                  arial-label="Please input email address"
+                  type="number"
                   className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200 placeholder-gray-100"
                   placeholder="Please input Country"
                 />
@@ -150,13 +203,31 @@ const AddTour = () => {
                   Tour Description
                 </label>
                 <textarea
-                  {...register("description")}
+                  {...register("descriptionOne")}
                   required
                   tabIndex={0}
                   aria-label="leave a message"
                   type="text"
-                  className="h-36 text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200 placeholder-gray-100 resize-none"
-                  placeholder="Please input Review"
+                  className="h-36 text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200  resize-none"
+                  placeholder="Description One"
+                />
+                <textarea
+                  {...register("descriptionTwo")}
+                  required
+                  tabIndex={0}
+                  aria-label="leave a message"
+                  type="text"
+                  className="h-36 text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200  resize-none"
+                  placeholder="Descripion Two"
+                />
+                <textarea
+                  {...register("facilities")}
+                  required
+                  tabIndex={0}
+                  aria-label="leave a message"
+                  type="text"
+                  className="h-36 text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-indigo-700 mt-4 bg-gray-100 border rounded border-gray-200  resize-none"
+                  placeholder="Facilities (Separate with comma)"
                 />
               </div>
             </div>

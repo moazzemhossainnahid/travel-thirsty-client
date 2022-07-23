@@ -7,7 +7,7 @@ import GridProduct from "../../Components/ashraful.Component/AllProducts/GridPro
 import Sidebar from "../../Components/ashraful.Component/Sidebars/Sidebar";
 import UseHooks from "../../Components/ashraful.Component/UseHooks/UseHooks";
 import Loading from "../../Components/Loading";
-import HotelHeader from "../Header/HotelHeader";
+import HotelHeader from "../Header/HeaderBanner/HotelHeader";
 const Hotel = () => {
   const [allTour_D, set_allTour_D] = useState([]);
   const [paginatedData, set_paginatedData] = useState([]);

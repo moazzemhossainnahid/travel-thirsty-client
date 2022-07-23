@@ -3,14 +3,15 @@ import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import useAdmin from "../../../Components/useAdmin";
-import UseToken from "../../../Components/UseToken";
+
+import useToken from "../../../hooks/useToken";
 import auth from "../../../firebase.init";
+import useAdmin from "../../../hooks/useAdmin";
 
 const HeaderAvater = () => {
   const [user] = useAuthState(auth);
-  const [token] = UseToken();
-  const [admin] = useAdmin();
+  const token = useToken(user?.email);
+  const isAdmin = useAdmin(user?.email);
   const navigate = useNavigate();
 
   const handleSignOut = async () => {
@@ -50,19 +51,19 @@ const HeaderAvater = () => {
           <Link to="/profile">Profile</Link>
         </li>
 
-        {admin && (
+        {isAdmin && (
           <li>
             <Link to="/dashboard">Dashboard</Link>
           </li>
         )}
 
-        {!admin && (
+        {!isAdmin && (
           <li>
             <Link to="/bookings">Bookings</Link>
           </li>
         )}
 
-        {!admin && (
+        {!isAdmin && (
           <li>
             <Link to="/addreview">Add Review</Link>
           </li>

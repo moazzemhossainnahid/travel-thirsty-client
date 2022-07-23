@@ -89,7 +89,6 @@ const Footer = () => {
             </div>
           </div>
         </div>
-
         <div class="mt-12 flex  xl:justify-between xl:flex-row flex-col-reverse items-center xl:items-start w-full ">
           <p class="mt-10 md:mt-12 xl:mt-0 flex gap-2 text-sm leading-none text-white">
             <Zoom>

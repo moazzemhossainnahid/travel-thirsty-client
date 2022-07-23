@@ -18,10 +18,13 @@ import { useForm } from "react-hook-form";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Loading from "../../Components/Loading";
-import UseToken from "../../Components/UseToken";
+
+import useToken from "../../hooks/useToken";
 import auth from "../../firebase.init";
+import UseHooks from "../../Components/ashraful.Component/UseHooks/UseHooks";
 
 const SignupRight = () => {
+  const { baseURL } = UseHooks();
   const [user] = useAuthState(auth);
   const [createUserWithEmailAndPassword, cuser, cloading, cerror] =
     useCreateUserWithEmailAndPassword(auth);
@@ -39,12 +42,12 @@ const SignupRight = () => {
 
   let signupError;
 
-  const [token] = UseToken(user?.email);
-  console.log(token);
+  const token = useToken(user?.email);
+  console.log(user?.email, token);
 
   useEffect(() => {
     if (user) {
-      fetch("http://localhost:5500/api/v1/user/add-user", {
+      fetch(`${baseURL}/api/v1/user/add-user`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -55,7 +58,7 @@ const SignupRight = () => {
         }),
       });
     }
-  }, [user]);
+  }, [user, baseURL]);
 
   if (cloading || gloading || gitloading || floading) {
     return <Loading />;

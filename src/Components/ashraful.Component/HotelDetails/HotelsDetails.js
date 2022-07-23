@@ -2,6 +2,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { CgEreader } from "react-icons/cg";
@@ -20,6 +21,7 @@ import "swiper/css/autoplay";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
+import auth from "../../../firebase.init";
 import hook from "../../ashraful.Component/UseHooks/UseHooks";
 import Loading from "../../Loading";
 
@@ -40,9 +42,10 @@ AOS.init();
 
 const HotelsDetails = () => {
   // const [startDate, setStartDate] = useState(new Date());
+  const [user] = useAuthState(auth);
   const [singleD, setSingleData] = useState([]);
   const [rooms_D, setRooms_D] = useState([]);
-  const [bookingD, setBookingD] = useState([]);
+  const [bookingD, setBookingD] = useState({});
   const [text, setText] = useState({});
   const [checkBooking, setCheckBooking] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -114,17 +117,17 @@ const HotelsDetails = () => {
     reset();
     const book_data = {
       user_name: data.user_name,
-      user_email: data.user_email,
+      user_email: user?.email,
       from_date: data.from_d,
       end_date: data.end_d,
-      booking_price: data.booking_price,
     };
     // post-service-booking
     const bookingAllRD = {
-      hotelInformation: bookingD,
-      userInformaiton: book_data,
+      ...bookingD,
+      ...book_data,
     };
-
+    // console.log(bookingD, book_data);
+    // console.log(bookingAllRD);
     axios
       .post(`${baseURL}/api/v1/user/post-hotel-booking`, bookingAllRD)
       .then((data) => {
@@ -142,8 +145,9 @@ const HotelsDetails = () => {
   /*                HANDLE BOOKING FUNCTIONALITY             */
   /*---------------------------------------------------------*/
   const handleBooking = (id) => {
-    const filtering = singleD?.rooms?.filter((item) => item._id === id);
+    const filtering = singleD?.rooms?.find((item) => item._id === id);
     setBookingD(filtering);
+
     openModal();
   };
 
@@ -376,6 +380,7 @@ const HotelsDetails = () => {
                       placeholder="Enter Your Email"
                       {...register("email")}
                       required
+                      value={user?.email}
                     />
                   </div>
                 </Slide>
@@ -596,7 +601,7 @@ const HotelsDetails = () => {
             <input
               type="email"
               className="w-full py-4 my-2 rounded"
-              defaultValue={text.email}
+              defaultValue={user?.email}
               placeholder="type your email"
               {...register("user_email")}
               required
@@ -619,7 +624,7 @@ const HotelsDetails = () => {
             />
             <input
               type="number"
-              defaultValue={bookingD[0]?.price}
+              value={bookingD?.price}
               className="w-full py-4 my-2 rounded"
               placeholder="Enter price"
               {...register("booking_price")}

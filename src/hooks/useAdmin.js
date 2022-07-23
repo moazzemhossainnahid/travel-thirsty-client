@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import UseHooks from "../Components/ashraful.Component/UseHooks/UseHooks";
 
-const useToken = (email) => {
+const useAdmin = (email) => {
+  const [isAdmin, setIsAdmin] = useState(false);
   const { baseURL } = UseHooks();
-  const [token, setToken] = useState("");
-  const url = `${baseURL}/api/v1/authentication/get-token?email=${email}`;
+  const url = `${baseURL}/api/v1/authentication/get-admin`;
   useEffect(() => {
     if (email) {
       fetch(url, {
@@ -12,18 +12,18 @@ const useToken = (email) => {
         headers: {
           "content-type": "application/json",
         },
+        body: JSON.stringify({ email }),
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
-          const accessToken = data.accessToken;
-          localStorage.setItem("accessToken", accessToken);
-          console.log(accessToken);
-          setToken(accessToken);
+          if (data.isAdmin) {
+            setIsAdmin(true);
+          }
         });
     }
   }, [url, email]);
-  return token;
+
+  return isAdmin;
 };
 
-export default useToken;
+export default useAdmin;
