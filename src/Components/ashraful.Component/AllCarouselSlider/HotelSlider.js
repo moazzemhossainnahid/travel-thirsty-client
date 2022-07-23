@@ -46,7 +46,7 @@ const HotelSlider = ({ Data }) => {
               </p>
               <a href="/#">
                 <img
-                  className="rounded-t-lg h-64 w-full"
+                  className="rounded-t-lg h-52 w-full"
                   src={data?.images[0]}
                   alt=""
                 />
@@ -56,7 +56,7 @@ const HotelSlider = ({ Data }) => {
             <div className="divide-y p-2">
               <div className="p-3">
                 <div className="flex justify-between">
-                  <h5 className="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                  <h5 className="text-lg font-semibold tracking-tight text-gray-900 dark:text-white">
                     {data?.name}
                   </h5>
                   <div className="text-2xl font-semibold text-blue-400">

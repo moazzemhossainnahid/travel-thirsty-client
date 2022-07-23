@@ -44,7 +44,7 @@ const TourSlider = ({ Data }) => {
               </p>
               <a href="/#">
                 <img
-                  className="rounded-t-lg h-80 w-full"
+                  className="rounded-t-lg h-52 w-full"
                   src={data?.images[0]}
                   alt=""
                 />

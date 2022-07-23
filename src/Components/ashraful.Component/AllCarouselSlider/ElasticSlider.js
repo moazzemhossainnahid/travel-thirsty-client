@@ -23,7 +23,7 @@ const ElasticSlider = ({ featureData }) => {
           featureData.map((data, index) => (
             <div
               key={index}
-              className="min-w-xs group m-3 h-[30rem] bg-white shadow-lg dark:bg-gray-800"
+              className="min-w-xs group m-3 h-[24rem] bg-white shadow-lg dark:bg-gray-800"
             >
               <div className="relative">
                 <p className="absolute h-full w-full insert-0 flex justify-center items-center">
@@ -32,7 +32,7 @@ const ElasticSlider = ({ featureData }) => {
                   </span>
                 </p>
                 <a href="/#">
-                  <img className="h-80 w-80" src={data.img} alt="" />
+                  <img className="h-60 w-80" src={data.img} alt="" />
                 </a>
               </div>
               <div className="p-5">

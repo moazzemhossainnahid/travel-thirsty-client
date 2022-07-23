@@ -33,7 +33,7 @@ const RestSlider = ({ Data }) => {
               </p>
               <a href="/#">
                 <img
-                  className="rounded-t-lg h-64 w-full"
+                  className="rounded-t-lg h-52 w-full"
                   src={data.img1}
                   alt=""
                 />

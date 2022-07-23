@@ -100,7 +100,7 @@ const Sidebar = ({
                 <RangeSlide handlePrice={handlePrice} />
               </div>
               <br />
-              <button
+              {/* <button
                 type="submit"
                 className="bg-red-500 h-14
                  text-white w-full rounded hover:bg-white hover:text-red-400
@@ -108,7 +108,7 @@ const Sidebar = ({
                  "
               >
                 Search
-              </button>
+              </button> */}
             </form>
           </div>
         </div>
