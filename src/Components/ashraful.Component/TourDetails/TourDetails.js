@@ -130,6 +130,8 @@ const TourDetails = () => {
         if (data.status === 200) {
           closeModal();
           swal("Good job!", "Tour Booking Successfully", "success");
+          setBookingD([]);
+          setCheckBooking([]);
         }
       });
   };

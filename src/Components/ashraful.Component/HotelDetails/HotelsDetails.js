@@ -135,6 +135,8 @@ const HotelsDetails = () => {
         if (data.status === 200) {
           swal("Good job!", "Room Booking Successfully", "success");
           closeModal();
+          setBookingD([]);
+          setCheckBooking([]);
         }
       });
   };

@@ -106,7 +106,7 @@ const Bookings = () => {
   return (
     <div className="bg-gradient-to-l from-secondary to-accent text-left h-full w-full lg:pt-20">
       <Header />
-      <div className="w-full flex items-center justify-center my-12">
+      <div className="w-full flex items-center justify-center gap-5 my-12">
         <div className="bg-white shadow rounded py-12 lg:px-28 px-8">
           <p className="md:text-3xl text-xl font-bold leading-7 text-center text-gray-700">
             Hotel Bookings
@@ -122,6 +122,7 @@ const Bookings = () => {
                     className="w-16 h-16 p-2 rounded-full"
                   />
                   <h3 className="text-xl font-semibold">{book?.name}</h3>
+                  <h3 className="text-xl font-semibold">{book?.price}</h3>
                   <button
                     onClick={() => deleteHotelBooking(book?._id)}
                     className=""

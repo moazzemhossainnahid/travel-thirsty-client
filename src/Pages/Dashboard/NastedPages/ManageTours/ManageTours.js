@@ -42,17 +42,17 @@ const ManageTours = () => {
   };
 
   return (
-    <div className=" h-full w-full">
-      <div className="w-full flex items-center justify-center text-left">
-        <div className="absolute top-40 bg-base-200 shadow rounded py-12 lg:px-28 px-8">
-          <p className="md:text-3xl text-xl font-bold leading-7 text-center text-gray-700 py-5">
+    <div className=" text-left h-full w-full lg:pt-20">
+      <div className="w-full flex items-center justify-center my-12">
+        <div className="bg-white shadow rounded py-12 lg:px-28 px-8">
+          <p className="md:text-3xl text-xl font-bold leading-7 text-center text-gray-700">
             Manage All Tour's
           </p>
           <div className="">
             {tours?.map((tour) => (
               <div className="flex justify-between items-center w-full m-2 bg-rose-300 px-3 rounded">
                 <img
-                  src={tour?.image}
+                  src={tour?.images[0]}
                   alt="Friend"
                   className="w-16 h-16 p-2 rounded-full"
                 />

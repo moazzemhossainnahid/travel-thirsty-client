@@ -63,11 +63,11 @@ const HeaderAvater = () => {
           </li>
         )}
 
-        {!isAdmin && (
+        {/* {!isAdmin && (
           <li>
             <Link to="/addreview">Add Review</Link>
           </li>
-        )}
+        )} */}
 
         <li>
           <button onClick={handleSignOut}>SignOut</button>
