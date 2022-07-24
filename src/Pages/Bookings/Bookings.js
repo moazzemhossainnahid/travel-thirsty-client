@@ -1,14 +1,12 @@
-import React from "react";
-import { toast } from "react-toastify";
-import Header from "../Header/Header";
-import swal from "sweetalert";
+import { faClose, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faClose } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
-import { useEffect } from "react";
-import UseHooks from "../../Components/ashraful.Component/UseHooks/UseHooks";
+import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { toast } from "react-toastify";
+import swal from "sweetalert";
+import UseHooks from "../../Components/ashraful.Component/UseHooks/UseHooks";
 import auth from "../../firebase.init";
+import Header from "../Header/Header";
 
 const Bookings = () => {
   const [hotelBookings, setHotelBookings] = useState([]);
@@ -104,62 +102,79 @@ const Bookings = () => {
   };
 
   return (
-    <div className="bg-gradient-to-l from-secondary to-accent text-left h-full w-full lg:pt-20">
+    <div className="bg-gradient-to-l from-secondary to-accent py-20 text-left h-full w-full lg:pt-20">
       <Header />
-      <div className="w-full flex items-center justify-center my-12">
-        <div className="bg-white shadow rounded py-12 lg:px-28 px-8">
-          <p className="md:text-3xl text-xl font-bold leading-7 text-center text-gray-700">
-            Hotel Bookings
-          </p>
-          <div className="">
-            {hotelBookings?.map((book) => {
-              console.log(book);
-              return (
-                <div className="flex justify-between items-center w-full m-2 bg-rose-300 px-3 rounded">
-                  <img
-                    src={book?.image}
-                    alt="Friend"
-                    className="w-16 h-16 p-2 rounded-full"
-                  />
-                  <h3 className="text-xl font-semibold">{book?.name}</h3>
-                  <button
-                    onClick={() => deleteHotelBooking(book?._id)}
-                    className=""
-                  >
-                    <FontAwesomeIcon
-                      className="text-3xl text-green-700 hover:text-purple-700"
-                      icon={faClose}
+      <div className=" text-left h-full w-full lg:pt-20">
+        <div className="w-full flex items-center justify-center gap-5 my-12">
+          <div className="bg-white shadow w-5/6 rounded py-12 lg:px-28 px-8">
+            <p className="md:text-3xl text-xl font-bold leading-7 text-center text-gray-700">
+              Hotel{" "}
+              <span className="text-primary border-b-2 border-green-500">
+                Bookings
+              </span>
+            </p>
+            <div className="">
+              {hotelBookings?.map((book) => {
+                console.log(book);
+                return (
+                  <div className="flex justify-between items-center w-full m-2 bg-rose-300 px-3 rounded">
+                    <img
+                      src={book?.image}
+                      alt="Friend"
+                      className="w-16 h-16 p-2 rounded-full"
                     />
-                  </button>
-                </div>
-              );
-            })}
+                    <h3 className="text-xl font-semibold">{book?.name}</h3>
+                    <h3 className="text-xl font-semibold">{book?.price}</h3>
+                    <button
+                      onClick={() => deleteHotelBooking(book?._id)}
+                      className=""
+                    >
+                      <FontAwesomeIcon
+                        className="text-3xl text-green-700 hover:text-purple-700"
+                        icon={faClose}
+                      />
+                    </button>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
-        <div className="bg-white shadow rounded py-12 lg:px-28 px-8">
-          <p className="md:text-3xl text-xl font-bold leading-7 text-center text-gray-700">
-            Tour Bookings
-          </p>
-          <div className="">
-            {tourBookings?.map((book) => (
-              <div className="flex justify-between items-center w-full m-2 bg-rose-300 px-3 rounded">
-                <img
-                  src={book?.image}
-                  alt="Friend"
-                  className="w-16 h-16 p-2 rounded-full"
-                />
-                <h3 className="text-xl font-semibold">{book?.name}</h3>
-                <button
-                  onClick={() => deleteTourBooking(book?._id)}
-                  className=""
-                >
-                  <FontAwesomeIcon
-                    className="text-3xl text-green-700 hover:text-purple-700"
-                    icon={faClose}
-                  />
-                </button>
+        <div className=" text-left h-full w-full lg:pt-20">
+          <div className="w-full flex items-center justify-center my-12">
+            <div className="bg-white shadow w-5/6 rounded py-12 lg:px-28 px-8">
+              <p className="md:text-3xl text-xl font-bold leading-7 text-center text-gray-700">
+                Tour{" "}
+                <span className="text-primary border-b-2 border-green-500">
+                  Bookings
+                </span>
+              </p>
+              <div className="">
+                {tourBookings?.map((book) => (
+                  <div class="card w-96 bg-base-100 shadow-xl">
+                    <figure class="px-10 pt-10">
+                      <img src={book?.image} alt="Shoes" class="rounded-xl" />
+                    </figure>
+                    <div class="card-body items-center text-center">
+                      <h2 class="card-title">Name: {book?.name}</h2>
+                      <p>Price: {book?.price}</p>
+                      <div class="card-actions">
+                        <button
+                          onClick={() => deleteTourBooking(book?._id)}
+                          className=""
+                        >
+                          <FontAwesomeIcon
+                            className="text-3xl text-green-700 hover:text-purple-700"
+                            icon={faTrash}
+                          />{" "}
+                          Detete Booking
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </div>
