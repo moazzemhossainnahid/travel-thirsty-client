@@ -4,8 +4,7 @@ import {
   faGoogle,
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import {
   useAuthState,
   useCreateUserWithEmailAndPassword,
@@ -17,11 +16,10 @@ import {
 import { useForm } from "react-hook-form";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import Loading from "../../Components/Loading";
-
-import useToken from "../../hooks/useToken";
-import auth from "../../firebase.init";
 import UseHooks from "../../Components/ashraful.Component/UseHooks/UseHooks";
+import Loading from "../../Components/Loading";
+import auth from "../../firebase.init";
+import useToken from "../../hooks/useToken";
 
 const SignupRight = () => {
   const { baseURL } = UseHooks();
@@ -61,7 +59,11 @@ const SignupRight = () => {
   }, [user, baseURL]);
 
   if (cloading || gloading || gitloading || floading) {
-    return <Loading />;
+    return (
+      <div className="text-center items-center h-40">
+        <Loading />
+      </div>
+    );
   }
 
   if (cerror || gerror || giterror || ferror) {

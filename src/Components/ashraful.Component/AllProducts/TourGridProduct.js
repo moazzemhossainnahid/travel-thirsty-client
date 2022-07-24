@@ -24,7 +24,7 @@ const TourGridProduct = ({ data }) => {
           </p>
           <a href="/#">
             <img
-              className="rounded-t-lg h-80 w-full"
+              className="rounded-t-lg h-60 w-full"
               src={data?.images[0]}
               alt="coming"
             />
@@ -33,14 +33,14 @@ const TourGridProduct = ({ data }) => {
         <div className="divide-y p-2">
           <div className="p-3">
             <div className="flex justify-between">
-              <h5 className="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+              <h5 className="md:text-lg lg:text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
                 {data?.name}
               </h5>
               <div className="text-2xl font-semibold text-blue-400">
                 ${data?.price}
               </div>
             </div>
-            <div className="flex justify-between py-2">
+            <div className="flex justify-between my-1">
               <p className="flex items-center">
                 <span className="-py-10" style={{ fontSize: "5px !important" }}>
                   <ReactStars
@@ -55,11 +55,11 @@ const TourGridProduct = ({ data }) => {
               </p>
               <p className=" font-semibold text-blue-400">/night</p>
             </div>
-            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+            <p className="my-1 font-normal text-gray-700 dark:text-gray-400">
               {data?.description?.facilities[0]}{" "}
-              {data?.description?.facilities[1]}
+              {data?.description?.facilities[1].slice(0, 38)}...
             </p>
-            <div>
+            <div className="text-red-600">
               <span>{data?.duration?.day}-day ,</span>{" "}
               <span>{data?.duration?.night}-night</span>
             </div>

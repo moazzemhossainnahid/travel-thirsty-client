@@ -77,7 +77,7 @@ const HotelSlider = ({ Data }) => {
                 </div>
                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
                   {data?.description?.facilities[0]}
-                  {data?.description?.facilities[1]}
+                  {data?.description?.facilities[1].slice(0, 38)}...
                 </p>
               </div>
               <div className="flex justify-between px-5 py-1">
@@ -91,7 +91,7 @@ const HotelSlider = ({ Data }) => {
                   onClick={() => handleButton(data._id)}
                   className="bg-green-400 px-3 p-1 text-white rounded"
                 >
-                  Book Now
+                  Discover
                 </button>
               </div>
             </div>

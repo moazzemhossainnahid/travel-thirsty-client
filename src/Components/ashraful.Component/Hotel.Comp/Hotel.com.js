@@ -38,18 +38,6 @@ const Hotel = () => {
         setHotelData(allTour);
       }, 1500);
       console.log(error);
-    } finally {
-      setTimeout(async () => {
-        const result = await axios.get(
-          `${baseURL}/api/v1/hotels/get-all-hotel`
-        );
-
-        const allTour = result.data.data;
-        if (allTour) {
-          setLoading(false);
-        }
-        setHotelData(allTour);
-      }, 1500);
     }
   }, [baseURL]);
   /* ----------------------------------------------------------------*/

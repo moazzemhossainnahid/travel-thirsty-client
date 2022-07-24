@@ -21,7 +21,7 @@ import Home from "./Pages/Home/Home";
 import Hotel from "./Pages/Hotel/Hotel";
 import NotFound from "./Pages/NotFound/NotFound";
 import Profile from "./Pages/Profile/Profile";
-import AddReview from "./Pages/Reviews/AddReview";
+// import AddReview from "./Pages/Reviews/AddReview";
 import Signin from "./Pages/Signin/Signin";
 import Signup from "./Pages/Signup/Signup";
 import Tour from "./Pages/Tour/Tour";
@@ -37,7 +37,6 @@ function App() {
         <Route path="/hotel" element={<Hotel />}>
           <Route path="details/:id" element={<HotelsDetails />} />
         </Route>
-        {/* <Route path="details/:id" element={} /> */}
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route
@@ -48,14 +47,14 @@ function App() {
             </RequireAuth>
           }
         />
-        <Route
+        {/* <Route
           path="/addreview"
           element={
             <RequireAuth>
               <AddReview />
             </RequireAuth>
           }
-        />
+        /> */}
         <Route
           path="/bookings"
           element={

@@ -24,8 +24,8 @@ const GridProduct = ({ data }) => {
           </p>
           <a href="/#">
             <img
-              className="rounded-t-lg h-80 w-full"
-              src={data.images[0]}
+              className="rounded-t-lg h-60 w-full"
+              src={data?.images[0]}
               alt="coming"
             />
           </a>
@@ -33,11 +33,11 @@ const GridProduct = ({ data }) => {
         <div className="divide-y p-2">
           <div className="p-3">
             <div className="flex justify-between">
-              <h5 className="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                {data.name}
+              <h5 className="md:text-lg lg:text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                {data?.name}
               </h5>
               <div className="text-2xl font-semibold text-blue-400">
-                ${data.price}
+                ${data?.price}
               </div>
             </div>
             <div className="flex justify-between py-2">
@@ -56,7 +56,8 @@ const GridProduct = ({ data }) => {
               <p className=" font-semibold text-blue-400">/night</p>
             </div>
             <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-              {data.description.facilities[0]} {data.description.facilities[1]}
+              {data?.description?.facilities[0]}{" "}
+              {data?.description?.facilities[1].slice(0, 38)}...
             </p>
           </div>
           <div className="flex justify-between px-5 py-1">
@@ -64,7 +65,7 @@ const GridProduct = ({ data }) => {
               <span className="mr-1 ">
                 <CgEreader />
               </span>
-              {data.city}
+              {data?.city}
             </p>
             <button
               onClick={() => handleButton(data._id)}

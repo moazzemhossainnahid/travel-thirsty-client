@@ -16,9 +16,8 @@ import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Loading from "../../Components/Loading";
-
-import useToken from "../../hooks/useToken";
 import auth from "../../firebase.init";
+import useToken from "../../hooks/useToken";
 
 const SigninLeft = () => {
   const [user] = useAuthState(auth);
@@ -41,7 +40,11 @@ const SigninLeft = () => {
   let signinError;
 
   if (sloading || gloading || gitloading || floading) {
-    return <Loading />;
+    return (
+      <div className="text-center items-center h-40">
+        <Loading />
+      </div>
+    );
   }
 
   if (serror || gerror || giterror || ferror) {

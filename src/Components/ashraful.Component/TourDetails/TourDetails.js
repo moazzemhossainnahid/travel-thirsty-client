@@ -40,7 +40,7 @@ const TourDetails = () => {
   const [tour_D, setTour_D] = useState([]);
   const [bookingD, setBookingD] = useState({});
   const [text, setText] = useState({});
-  const [checkBooking, setCheckBooking] = useState([]);
+  const [checkBooking, setCheckBooking] = useState(1);
   const [loading, setLoading] = useState(false);
 
   const { baseURL } = UseHook();
@@ -90,9 +90,8 @@ const TourDetails = () => {
         (parseInt(item.guest3) === parseInt(data.guest) &&
           parseInt(item.children3) === parseInt(data.children))
     );
-    setCheckBooking(filtering);
+    setCheckBooking(filtering.length);
     setTour_D(filtering);
-    // console.log(filtering);
     reset();
   };
 
@@ -118,8 +117,8 @@ const TourDetails = () => {
       booking_price: bookingD.price,
     };
     const bookingAllTD = {
-      ...bookingD,
-      ...book_data,
+      tourInformation: bookingD,
+      userInformation: book_data,
     };
 
     reset();
@@ -130,8 +129,8 @@ const TourDetails = () => {
         if (data.status === 200) {
           closeModal();
           swal("Good job!", "Tour Booking Successfully", "success");
-          setBookingD([]);
-          setCheckBooking([]);
+          setBookingD({});
+          setCheckBooking(0);
         }
       });
   };
@@ -141,9 +140,7 @@ const TourDetails = () => {
   /*---------------------------------------------------------*/
   const handleBooking = (id) => {
     const filtering = singleD?.tour?.find((item) => item._id === id);
-    console.log(singleD);
     setBookingD(filtering);
-    console.log(filtering);
     openModal();
   };
   /* ----------------------------------------------------------------*/
@@ -241,28 +238,28 @@ const TourDetails = () => {
           </Fade>
           <Fade right>
             <div className="w-full flex justify-center">
-              <ReactPlayer
-                // width="60rem"
-                // height={600}
-                url="https://youtu.be/FWETuLvKhNA"
-              />
+              <ReactPlayer url="https://youtu.be/hVU9Jh_4gT4" />
             </div>
           </Fade>
         </div>
 
         <Fade right>
-          {checkBooking.length ? (
+          {checkBooking > 0 ? (
             <div>
-              <h3 className="text-3xl my-5 font-semibold">
-                Specific Tour Place
-              </h3>
+              {tour_D.length ? (
+                <h3 className="text-3xl my-5 font-semibold">
+                  Specific Tour Place
+                </h3>
+              ) : (
+                ""
+              )}
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
-                {tour_D.length ? (
+                {tour_D.length &&
                   tour_D.map((item, index) => (
                     <div key={index} className="col-span-1 mb-10 flex flex-col">
                       <div className=" min-w-xs m-3 group h-full bg-white rounded-lg border border-gray-200 shadow-lg dark:bg-gray-800 dark:border-gray-700">
                         <img
-                          className="rounded-t-lg h-80 w-full"
+                          className="rounded-t-lg h-60 w-full"
                           src={item?.image}
                           alt="coming"
                         />
@@ -319,20 +316,17 @@ const TourDetails = () => {
                         </div>
                       </div>
                     </div>
-                  ))
-                ) : (
-                  <div className="my-10 col-span-3 text-3xl text-red-500 text-center">
-                    No Room Available
-                  </div>
-                )}
+                  ))}
               </div>
             </div>
           ) : (
-            ""
+            <div className="my-10 text-3xl text-red-500 text-center">
+              No Tour Available
+            </div>
           )}
         </Fade>
 
-        <div className={checkBooking.length ? "" : "mt-16"}></div>
+        <div className={checkBooking > 1 ? "" : "mt-16"}></div>
         <div>
           <Flip left>
             <h3 className="text-3xl font-semibold py-4">
@@ -347,6 +341,7 @@ const TourDetails = () => {
                     <input
                       type="text"
                       id="name"
+                      defaultValue={user?.displayName}
                       className="shadow-sm bg-gray-50
                    border border-gray-300 text-gray-900
                     text-sm rounded focus:ring-red-400
@@ -379,7 +374,7 @@ const TourDetails = () => {
                       placeholder="Enter Your Email"
                       {...register("email")}
                       required
-                      value={user?.email}
+                      defaultValue={user?.email}
                     />
                   </div>
                 </Slide>

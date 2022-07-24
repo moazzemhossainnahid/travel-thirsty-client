@@ -3,10 +3,9 @@ import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-
-import useToken from "../../../hooks/useToken";
 import auth from "../../../firebase.init";
 import useAdmin from "../../../hooks/useAdmin";
+import useToken from "../../../hooks/useToken";
 
 const HeaderAvater = () => {
   const [user] = useAuthState(auth);
@@ -63,11 +62,7 @@ const HeaderAvater = () => {
           </li>
         )}
 
-        {!isAdmin && (
-          <li>
-            <Link to="/addreview">Add Review</Link>
-          </li>
-        )}
+        {!isAdmin && <li>{/* <Link to="/addreview">Add Review</Link> */}</li>}
 
         <li>
           <button onClick={handleSignOut}>SignOut</button>

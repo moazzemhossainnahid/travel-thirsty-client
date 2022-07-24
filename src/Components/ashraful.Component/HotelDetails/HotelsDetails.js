@@ -47,7 +47,7 @@ const HotelsDetails = () => {
   const [rooms_D, setRooms_D] = useState([]);
   const [bookingD, setBookingD] = useState({});
   const [text, setText] = useState({});
-  const [checkBooking, setCheckBooking] = useState([]);
+  const [checkBooking, setCheckBooking] = useState(1);
   const [loading, setLoading] = useState(false);
 
   const { baseURL } = hook();
@@ -95,7 +95,8 @@ const HotelsDetails = () => {
         (parseInt(item.guest3) === parseInt(data.guest) &&
           parseInt(item.children3) === parseInt(data.children))
     );
-    setCheckBooking(filtering);
+    console.log(filtering);
+    setCheckBooking(filtering.length);
     setRooms_D(filtering);
     reset();
   };
@@ -123,11 +124,10 @@ const HotelsDetails = () => {
     };
     // post-service-booking
     const bookingAllRD = {
-      ...bookingD,
-      ...book_data,
+      hotelInformation: bookingD,
+      userInformation: book_data,
     };
-    // console.log(bookingD, book_data);
-    // console.log(bookingAllRD);
+
     axios
       .post(`${baseURL}/api/v1/user/post-hotel-booking`, bookingAllRD)
       .then((data) => {
@@ -135,8 +135,8 @@ const HotelsDetails = () => {
         if (data.status === 200) {
           swal("Good job!", "Room Booking Successfully", "success");
           closeModal();
-          setBookingD([]);
-          setCheckBooking([]);
+          setBookingD({});
+          setCheckBooking(0);
         }
       });
   };
@@ -150,7 +150,7 @@ const HotelsDetails = () => {
 
     openModal();
   };
-
+  console.log(text);
   /*---------------------------------------------------------*/
   /*                    FUNCTIONALITY END                    */
   /*---------------------------------------------------------*/
@@ -212,12 +212,10 @@ const HotelsDetails = () => {
           >
             <ReactStars
               size="20"
-              activeColor="red"
+              activeColor="yellow"
               color="gray"
-              count={5}
               edit={false}
               value={singleD?.rating}
-              // readOnly
             />
             <span className="ml-2">{singleD?.rating} Rating</span>
           </div>
@@ -242,29 +240,29 @@ const HotelsDetails = () => {
         </div>
         <div className="my-6">
           <Flip left>
-            <h3 className="text-3xl font-semibold">Take A Tour</h3>
+            <h3 className="text-3xl font-semibold">Take A Hotel</h3>
           </Flip>
           <Reveal effect="fadeInUp">
             <div className="w-full flex justify-center">
-              <ReactPlayer
-                // width="60rem"
-                // height={600}
-                url="https://youtu.be/FWETuLvKhNA"
-              />
+              <ReactPlayer url="https://youtu.be/4K6Sh1tsAW4" />
             </div>
           </Reveal>
         </div>
         <Fade right>
-          {checkBooking.length ? (
+          {checkBooking > 0 ? (
             <div>
-              <h3 className="text-3xl my-5 font-semibold">Our Rooms</h3>
+              {rooms_D.length ? (
+                <h3 className="text-3xl my-5 font-semibold">Our Rooms</h3>
+              ) : (
+                ""
+              )}
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
-                {rooms_D.length ? (
+                {rooms_D.length &&
                   rooms_D.map((item, index) => (
                     <div key={index} className="col-span-1 mb-10 flex flex-col">
                       <div className=" min-w-xs m-3 group h-full bg-white rounded-lg border border-gray-200 shadow-lg dark:bg-gray-800 dark:border-gray-700">
                         <img
-                          className="rounded-t-lg h-80 w-full"
+                          className="rounded-t-lg h-60 w-full"
                           src={item?.image}
                           alt="coming"
                         />
@@ -321,16 +319,13 @@ const HotelsDetails = () => {
                         </div>
                       </div>
                     </div>
-                  ))
-                ) : (
-                  <div className="my-10 col-span-3 text-3xl text-red-500 text-center">
-                    No Room Available
-                  </div>
-                )}
+                  ))}
               </div>
             </div>
           ) : (
-            ""
+            <div className="my-10 text-3xl text-red-500 text-center">
+              No Room Available
+            </div>
           )}
         </Fade>
 
@@ -348,6 +343,7 @@ const HotelsDetails = () => {
                     <input
                       type="text"
                       id="name"
+                      defaultValue={user?.displayName}
                       className="shadow-sm bg-gray-50
                    border border-gray-300 text-gray-900
                     text-sm rounded focus:ring-red-400
@@ -380,7 +376,7 @@ const HotelsDetails = () => {
                       placeholder="Enter Your Email"
                       {...register("email")}
                       required
-                      value={user?.email}
+                      defaultValue={user?.email}
                     />
                   </div>
                 </Slide>
@@ -593,7 +589,7 @@ const HotelsDetails = () => {
             <input
               type="text"
               className="w-full py-4 my-2 rounded"
-              defaultValue={text.name}
+              defaultValue={text?.name}
               placeholder="type your name"
               {...register("user_name")}
               required
